@@ -1,0 +1,28 @@
+[global]
+    geometry = "300x50-20+20"
+    font = "Sans 10"
+    padding = 10
+    transparency = 20
+    corner_radius = 5
+    frame_width = 2
+
+    # Placeholder colors to be updated by the script
+    background = "#09080d"
+    foreground = "#c1c1c2"
+    frame_color = "#5B4C6D"
+
+[urgency_low]
+    background = "#09080d"
+    foreground = "#c1c1c2"
+    frame_color = "#5B4C6D"
+
+[urgency_normal]
+    background = "#09080d"
+    foreground = "#c1c1c2"
+    frame_color = "#5B4C6D"
+
+[urgency_critical]
+    background = "#09080d"
+    foreground = "#c1c1c2"
+    frame_color = "#5B4C6D"
+

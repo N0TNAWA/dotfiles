@@ -1,0 +1,41 @@
+: 1730243770:0;ls
+: 1730243775:0;vim dunstrc
+: 1730245899:0;ls
+: 1730246082:0;cd /etc/dunst
+: 1730246096:0;cp dunstrc ~/.config/dunst
+: 1730246104:0;cd ~/.config/dunst
+: 1730246104:0;ls
+: 1730246147:0;ln -sf ~/.cache/wal/templates/dunstrc dunstrc
+: 1730246148:0;ls
+: 1730246177:0;vim dunstrc
+: 1730246440:0;notify-send 'test'
+: 1730246540:0;vim dunstrc
+: 1730246588:0;notify-send 'test'
+: 1730246595:0;pkill dunst
+: 1730246597:0;notify-send 'test'
+: 1730246617:0;pkill dunst
+: 1730246618:0;notify-send 'test'
+: 1730246759:0;pkill dunst
+: 1730246761:0;notify-send 'test'
+: 1730246936:0;ls
+: 1730246945:0;ln -sf ~/.cache/wal/dunstrc dunstrc
+: 1730246946:0;ls
+: 1730246954:0;notify-send 'test'
+: 1730246960:0;pkill dunst
+: 1730246961:0;notify-send 'test'
+: 1730247053:0;dunst
+: 1730247109:0;wal
+: 1730247117:0;dunst
+: 1730247328:0;notify-send 'test'
+: 1730247331:0;dunst
+: 1730247395:0;ls
+: 1730247399:0;rm dunstrc
+: 1730247414:0;ls
+: 1730247425:0;rm dunstrc
+: 1730247440:0;ls
+: 1730248191:0;rm dunstrc
+: 1730248264:0;vim dunstrc
+: 1730248291:0;killall dunst && dunst &
+: 1730248970:0;vim dunstrc
+: 1730249234:0;ls
+: 1730249428:0;cd
