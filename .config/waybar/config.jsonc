@@ -1,0 +1,136 @@
+{
+  "layer": "top",
+  "position": "top",
+  "margin-top": 13,
+  "modules-left": ["custom/power", "custom/menu", "custom/pacman", "clock", "custom/weather"],
+  "modules-center": ["hyprland/workspaces"],
+  "modules-right": ["custom/spotify", "cava", "pulseaudio", "battery", "network"],
+
+  "custom/pacman": {
+    "interval": 10, 
+    "exec": "$HOME/.config/waybar/scripts/fetch_update.sh", 
+    "return-type": "json",
+    "format": "󰚰   {}",
+    "on-click": "kitty --title systemupdate sh -c '~/.config/waybar/scripts/update.sh'",
+    "tooltip": true
+  },
+
+  "custom/power": {
+    "format": "⏻",
+    "on-click": "wlogout",
+    "tooltip": true,
+    "tooltip-format": "Power options"
+  },
+
+  "custom/menu": {
+    "format": "󰍜",
+    "on-click": "$HOME/.config/hypr/scripts/rofi_launcher.sh",
+    "tooltip": true,
+    "tooltip-format": "More apps"
+  },
+
+  "custom/spotify": {
+    "exec": "$HOME/.config/waybar/scripts/mediaplayer.py --player spotify",
+    "format": " {}",
+    "return-type": "json",
+    "on-click": "playerctl play-pause --player spotify",
+    "on-click-right": "playerctl next --player spotify",       "on-click-middle": "playerctl previous --player spotify",
+    "max-length": 50,
+    "escape": true,
+    "tooltip": true
+  },
+
+  "cava": {
+//  "cava_config": "$XDG_CONFIG_HOME/cava/cava.conf",
+    "framerate": 144,
+    "autosens": 1,
+    "sensitivity": 2,
+    "bars": 14,
+    "lower_cutoff_freq": 50,
+    "higher_cutoff_freq": 10000,
+    "method": "pulse",
+    "source": "auto",
+    "stereo": true,
+    "reverse": false,
+    "bar_delimiter": 0,
+    "monstercat": false,
+    "waves": false,
+    "noise_reduction": 0.77,
+    "input_delay": 2,
+    "format-icons" : ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█" ],
+    "actions": {
+      "on-click-right": "mode"
+    }
+  },
+
+  "battery": {
+    "format": "{icon}  {capacity}%",
+    "format-charging": "󰂄  {capacity}%",
+    "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+  },
+
+  "clock": {
+    "format": "󰥔   {:%I:%M %p}",
+    "format-alt": "󰥔   {:%a, %d. %b  %I:%M %p}",
+    "tooltip": true,
+    "tooltip-format": "󰥔   {:%a, %d. %b  %I:%M %p}"
+  },
+
+  "pulseaudio": {
+    "format": "{icon}  {volume}%",
+    "format-bluetooth": "󰂱  {volume}%",
+    "format-muted": "󰖁",
+    "scroll-step": 1,
+    "on-click": "pavucontrol -t 3",
+    "ignored-sinks": ["Easy Effects Sink"],
+    "format-icons": {
+      "headphone": "  ",
+      "hands-free": " ",
+      "headset": "󰋎 ",
+      "phone": " ",
+      "portable": " ",
+      "car": "",
+      "default": ["󰖀", "󰕾"]
+    }
+  },
+
+  "network": {
+    "interface": "enp1s0",
+    "format": "{ifname}",
+    /*"format-wifi": "{icon}   {essid}",*/
+    /*"format-ethernet": "󰈀   {ipaddr}/{cidr}",*/
+    "format-wifi": "{icon}",
+    "format-ethernet": "󰈀",
+    "format-disconnected": "󰤭   disconnected",
+    "max-length": 50,
+    "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+    "tooltip": true,
+    "tooltip-format": "Network"
+  },
+
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "on-click": "activate",
+    "format-icons": {
+      "urgent": "󰀨",
+      "active": "",
+      "default": ""
+    },
+
+    "sort-by-number": true
+  },
+
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "{icon}   {percent}%",
+    "format-icons": ["󰃞", "󰃟", "󰃠"]
+  },
+
+  "custom/weather": {
+    "exec": "${HOME}/.config/waybar/scripts/get_weather.sh Stockholm+Sweden",
+    "return-type": "json",
+    "format": "{}",
+    "tooltip": true,
+    "interval": 3600
+  }
+}
