@@ -1,0 +1,19 @@
+: 1730171342:0;ls
+: 1730171366:0;nano config.json
+: 1730171371:0;nano config.jsonc
+: 1730171393:0;mkdir pngs
+: 1730171575:0;ls ~/Pictures
+: 1730171619:0;mv ~/Pictures/5cb97ba46bc2bf2abdf4f8d9e14f12ed.jpg pngs
+: 1730171651:0;cd pngs
+: 1730171659:0;nano config.jsonc
+: 1730171834:0;mv ~/Pictures/0f3d4f6c9505a08a9b3f2f82b40cab54.jpg pngs
+: 1730171840:0;cd pngs
+: 1730172054:0;ls
+: 1730172057:0;nano config.jsonc
+: 1730172836:0;ls
+: 1730172840:0;nano config.jsonc
+: 1730174046:0;ls
+: 1730174048:0;cd pngs
+: 1730174335:0;ös
+: 1730174336:0;ls
+: 1730175241:0;nano config.jsonc
