@@ -22,7 +22,7 @@ WALLPAPER=$(echo -e "$entries" | rofi -dmenu -i -p "Choose Wallpaper" -theme $HO
 
 [ -z "$WALLPAPER"] && exit 1
 
-swww img "$WALLPAPER_DIR/$WALLPAPER" && wal -i "$WALLPAPER_DIR/$WALLPAPER" && ~/.config/hypr/scripts/update-dunst-colors.sh
+swww img "$WALLPAPER_DIR/$WALLPAPER" && wal -i "$WALLPAPER_DIR/$WALLPAPER" && ~/dotfiles/.config/hypr/scripts/update-dunst-colors.sh
 
 echo "$WALLPAPER_DIR/$WALLPAPER" > "WALLPAPER_SAVE_PATH"
 
