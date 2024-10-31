@@ -12,10 +12,25 @@ window#waybar {
     color: @background;
 }
 
+#workspaces button {
+    box-shadow: none;
+    text-shadow: none;
+    border: none;
+
+    transition: all 0.2s ease;
+}
+
 #workspaces button.active {
     color: @foreground;
 }
 
+#workspaces button:hover {
+    background: @background;
+    color: @foreground;
+    box-shadow: none;
+    text-shadow: none;
+    border: none;
+}
 
 #workspaces {
     background-color: @background;
