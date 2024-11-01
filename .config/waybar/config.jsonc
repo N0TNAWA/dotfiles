@@ -7,7 +7,7 @@
   "modules-right": ["custom/spotify", "cava", "pulseaudio", "battery", "network"],
 
   "custom/pacman": {
-    "interval": 10, 
+    "interval": 3600, 
     "exec": "$HOME/.config/waybar/scripts/fetch_update.sh", 
     "return-type": "json",
     "format": "󰚰   {}",
