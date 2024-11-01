@@ -1,9 +1,3 @@
-vim.cmd("set expandtab") 
-vim.cmd("set tabstop=2")
-vim.cmd("set softtabstop=2")
-vim.cmd("set shiftwidth=2")
-vim.g.mapleader=" "
-
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
   local lazyrepo = "https://github.com/folke/lazy.nvim.git"
@@ -20,41 +14,9 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-local plugins = {
-
-  {
-    'uZer/pywal16.nvim',
-    -- for local dev replace with:
-    -- dir = '~/your/path/pywal16.nvim',
-    config = function()
-      vim.cmd.colorscheme("pywal16")
-    end,
-  },
-
-  {
-    'nvim-telescope/telescope.nvim', tag = '0.1.8',
-    dependencies = { 'nvim-lua/plenary.nvim' }
-  },
-
-  {
-    {'nvim-treesitter/nvim-treesitter', build = ':TSUpdate'}
-  }
-
-}
 local opts = {}
 
+require("vim-settings")
+require("lazy").setup("plugins")
 
-require("lazy").setup(plugins, opts)
 
-local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<C-p>', builtin.find_files, {})
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
-
-local configs = require("nvim-treesitter.configs")
-configs.setup({
-  ensure_installed = {"lua", "python", "javascript", "html", "css"},
-  highlight = { enable = true },
-  indent = { enable = true },
-})
-
-require("pywal16").setup()
