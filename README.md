@@ -20,7 +20,7 @@ sudo pacman -S git
 
 ### base-devel
 ```
-sudo pacman -S 
+sudo pacman -S base-devel
 ```
 
 ### paru
