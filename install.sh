@@ -3,7 +3,7 @@
 # Update the system
 sudo pacman -Syu
 
-essential_packages=(hyprland qt5-wayland qt6-wayland xdg-desktop-portal-hyprland qt5-graphicaleffects qt5-quickcontrols2 qt5-svg cliphist xdotool kitty firefox dolphin rofi dunst grim slurp hyprlock wl-clipboard fastfetch blueman udiskie pavucontrol zsh flatpak gtk-engine-murrine unzip scrcpy imagemagick stow openssh tree neovim)
+essential_packages=(hyprland qt5-wayland qt6-wayland xdg-desktop-portal-hyprland qt5-graphicaleffects qt5-quickcontrols2 qt5-svg sddm cliphist xdotool kitty firefox dolphin rofi dunst grim slurp hyprlock wl-clipboard fastfetch blueman udiskie pavucontrol zsh flatpak gtk-engine-murrine unzip scrcpy imagemagick stow openssh tree neovim)
 
 aur_packages=(waybar-cava wlogout swaylock-effects pywal swappy swww oh-my-posh mission-center impression nwg-look otf-font-awesome-6.6.0-1 ttf-jetbrains-mono-nerd ttf-cascadia-mono-nerd adobe-source-han-sans-jp-fonts)
 
@@ -19,7 +19,9 @@ sudo pacman -S "${essential_packages[@]}"
 echo "Done installing pacman packages!"
 echo "Installing AUR packages."
 
-paru -S "${aur_packages[@]}"
+for app in "${aur_packages[@]}"; do
+  paru -S "$app"
+done
 
 echo "Done installing AUR packages!"
 echo "Installing flatpak packages."
@@ -30,6 +32,14 @@ done
 
 echo "Done installing flatpak packages!"
 echo "Installation stage complete."
+echo "Changing default shell."
+
+if ! chsh -s "$(which zsh)"; then
+  echo "Failed to set zsh as the default shell"
+else
+  echo "Successfully changed default shell."
+fi
+
 echo "Using stow to set up symlinks from ~/dotfiles to ~/.config"
 
 stow .
