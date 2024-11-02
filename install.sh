@@ -3,9 +3,9 @@
 # Update the system
 sudo pacman -Syu
 
-essential_packages=(hyprland qt5-wayland qt6-wayland xdg-desktop-portal-hyprland cliphist xdotools kitty firefox dolphin rofi dunst grim slurp hyprlock wl-clipboard fastfetch blueman udiskie pavucontrol zsh flatpak gtk-engine-murrine unzip scrcpy imagemagick stow openssh tree neovim)
+essential_packages=(hyprland qt5-wayland qt6-wayland xdg-desktop-portal-hyprland qt5-graphicaleffects qt5-quickcontrols2 qt5-svg cliphist xdotool kitty firefox dolphin rofi dunst grim slurp hyprlock wl-clipboard fastfetch blueman udiskie pavucontrol zsh flatpak gtk-engine-murrine unzip scrcpy imagemagick stow openssh tree neovim)
 
-aur_packages=(waybar-cava wlogout swaylock-effects pywal swappy swwww oh-my-posh mission-center impression nwg-look otf-font-awesome-6.6.0-1 ttf-jetbrains-mono-nerd ttf-cascadia-mono-nerd adobe-source-han-sans-jp-fonts)
+aur_packages=(waybar-cava wlogout swaylock-effects pywal swappy swww oh-my-posh mission-center impression nwg-look otf-font-awesome-6.6.0-1 ttf-jetbrains-mono-nerd ttf-cascadia-mono-nerd adobe-source-han-sans-jp-fonts)
 
 flatpak_packages=(com.github.tchx84.Flatseal)
 
@@ -14,12 +14,12 @@ flatpak_packages=(com.github.tchx84.Flatseal)
 echo "Installing packages."
 echo "Installing pacman packages."
 
-sudo pacman -S --noconfirm "${essential_packages}"
+sudo pacman -S "${essential_packages[@]}"
 
 echo "Done installing pacman packages!"
 echo "Installing AUR packages."
 
-paru -S --noconfirm "${aur_packages}"
+paru -S "${aur_packages[@]}"
 
 echo "Done installing AUR packages!"
 echo "Installing flatpak packages."
@@ -37,8 +37,8 @@ stow .
 echo "Done setting up config symlinks."
 echo "Copying over assets."
 
-cp -r "~/dotfiles/.config/assets/sugar-candy" "/usr/share/sddm/themes"
-cp "~/dotfiles/.config/assets/default.conf" "/usr/lib/sddm/sddm.conf.d/default.conf"
+cp -r "$HOME/dotfiles/.config/assets/sugar-candy" "/usr/share/sddm/themes"
+cp "$HOME/dotfiles/.config/assets/default.conf" "/usr/lib/sddm/sddm.conf.d/default.conf"
 
 echo "Done copying assets."
 echo "Starting up systemctl services"
