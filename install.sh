@@ -40,6 +40,9 @@ else
   echo "Successfully changed default shell."
 fi
 
+echo "Setting up pywal"
+wal -i "$HOME/Wallpapers/1.png"
+
 echo "Using stow to set up symlinks from ~/dotfiles to ~/.config"
 
 stow .
@@ -47,13 +50,13 @@ stow .
 echo "Done setting up config symlinks."
 echo "Copying over assets."
 
-cp -r "$HOME/dotfiles/.config/assets/sugar-candy" "/usr/share/sddm/themes"
-cp "$HOME/dotfiles/.config/assets/default.conf" "/usr/lib/sddm/sddm.conf.d/default.conf"
+sudo cp -r "$HOME/dotfiles/.config/assets/sugar-candy" "/usr/share/sddm/themes"
+sudo cp "$HOME/dotfiles/.config/assets/default.conf" "/usr/lib/sddm/sddm.conf.d/default.conf"
 
 echo "Done copying assets."
 echo "Starting up systemctl services"
 
-systemctl_services=(sddm.service NetworkManager.service sshd.service polkit.service dbus-broker.service udisks2.service upower.service)
+systemctl_services=(NetworkManager.service sshd.service polkit.service dbus-broker.service udisks2.service upower.service sddm.service)
 
 for service in "${systemctl_services[@]}"; do
   systemctl start "$service"
