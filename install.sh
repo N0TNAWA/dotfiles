@@ -41,7 +41,7 @@ else
 fi
 
 echo "Setting up pywal"
-wal -i "$HOME/Wallpapers/1.png"
+wal -i "$HOME/dotfiles/Wallpapers/1.png"
 
 echo "Using stow to set up symlinks from ~/dotfiles to ~/.config"
 
@@ -59,17 +59,16 @@ echo "Starting up systemctl services"
 systemctl_services=(NetworkManager.service sshd.service polkit.service dbus-broker.service udisks2.service upower.service sddm.service)
 
 for service in "${systemctl_services[@]}"; do
+  systemctl enable "$service"
+  echo "Enabled $service."
+done
+
+for service in "${systemctl_services[@]}"; do
   systemctl start "$service"
   echo "Started $service."
 done
 
-echo "Done starting services!"
-echo "Enabling services."
-
-for service in "${systemctl_services[@]}"; do
-  systemctl enable "$service"
-  echo "Enabled $service."
-done
+echo "Done starting and enabling services!"
 
 echo "Dotfiles installation complete."
 echo "You may now reboot."
