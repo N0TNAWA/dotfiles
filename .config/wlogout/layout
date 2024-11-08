@@ -18,7 +18,7 @@
 }
 {
     "label" : "lock",
-    "action" : "swaylock",
+    "action" : "~/dotfiles/.config/swaylock/lock.sh",
     "text" : "Lock",
     "keybind" : "l"
 }

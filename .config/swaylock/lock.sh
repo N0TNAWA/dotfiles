@@ -1,0 +1,32 @@
+source "$HOME/.cache/wal/colors.sh"
+
+swaylock \
+  --daemonize \
+  --indicator \
+  --screenshot \
+  --indicator-radius 100 \
+  --indicator-thickness 10 \
+  --effect-blur 15x15 \
+  --effect-vignette 1:1 \
+  --inside-color "$background" \
+  --inside-clear-color "$color4" \
+  --inside-ver-color "$background" \
+  --inside-wrong-color "$color7" \
+  --key-hl-color "$color1" \
+  --bs-hl-color "$color2" \
+  --ring-color "$background" \
+  --ring-clear-color "$color2" \
+  --ring-wrong-color "$color5" \
+  --ring-ver-color "$color1" \
+  --line-uses-ring \
+  --line-color 00000000 \
+  --text-color "$color4" \
+  --text-clear-color "$color4" \
+  --text-wrong-color "$color7" \
+  --text-ver-color "$color1" \
+  --grace 2 \
+  --grace-no-mouse \
+  --grace-no-touch \
+  --fade-in 0.3 \
+  --ignore-empty-password \
+  --separator-color 00000000
