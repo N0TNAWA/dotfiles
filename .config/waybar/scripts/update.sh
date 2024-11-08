@@ -121,3 +121,5 @@ if [[ "$choice" =~ ^[Yy]$ ]]; then
 else
     echo "Update finished without reboot."
 fi
+
+
