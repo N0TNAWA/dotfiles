@@ -95,7 +95,7 @@ window#waybar {
     color: @color4;
     background: @background;
     margin: 0 15px 0 0;
-    padding: 0 16px 0 14px;
+    padding: 0 16px 0 13px;
 }
 
 #cava {

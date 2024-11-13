@@ -1,13 +1,12 @@
 # Variables
 WALLPAPER_DIR="$HOME/Wallpapers"
-WALLPAPER_ASSET_DIR="$HOME/dotfiles/.config/assets/current_wallpaper"
-THUMBNAIL_DIR="$HOME/.cache/wallpaper_thumbnails"
-SDDM_WALLPAPER_DIR="/usr/share/sddm/themes/sugar-candy/Background"
+SDDM_WALLPAPER_DIR="/usr/share/sddm/themes/sugar-candy/Backgrounds"
 CACHE_DIR="$HOME/.cache/mineral"
+THUMBNAIL_DIR="$HOME/.cache/mineral/wallpaper_thumbnails"
 
 # If there is no thumbnail directory. Create one
-mkdir -p "$THUMBNAIL_DIR"
 mkdir -p "$CACHE_DIR"
+mkdir -p "$THUMBNAIL_DIR"
 
 # Making thumbnail
 for wallpaper in "$WALLPAPER_DIR"/*; do
@@ -25,7 +24,7 @@ for wallpaper in "$WALLPAPER_DIR"/*; do
 	entries+="$name\0icon\x1f$icon\n"
 done
 
-WALLPAPER=$(echo -e "$entries" | rofi -dmenu -i -p "Choose Wallpaper" -theme $HOME/.config/rofi/styles/swww.rasi -markup-rows)
+WALLPAPER=$(echo -e "$entries" | rofi -dmenu -i -theme "$HOME/dotfiles/.config/rofi/styles/swww.rasi" -markup-rows)
 
 [ -z "$WALLPAPER"] && exit 1
 
@@ -34,18 +33,18 @@ swww img "$WALLPAPER_DIR/$WALLPAPER" && wal -i "$WALLPAPER_DIR/$WALLPAPER" && ~/
 # Put current wallpaper in a asset directory
 cp "$WALLPAPER_DIR/$WALLPAPER" "$CACHE_DIR"
 
-new_file="wallpaper.png"
+file_to_rename="$CACHE_DIR/$WALLPAPER"
 
-file_to_rename=$(find "$CACHE_DIR" -type f \( -name "*.png" \) | head -n 1)
+new_image="wallpaper.png"
 
 if [[ -n "$file_to_rename" ]]; then
-    mv "$file_to_rename" "$CACHE_DIR/$new_file"
+    mv "$file_to_rename" "$CACHE_DIR/$new_image"
 else
-    echo "No image file found in $folder_path"
+    echo "No image file found"
 fi
 
 # Change SDDM wallpaper
-cp "$CACHE_DIR/$new_file" "$SDDM_WALLPAPER_DIR"
+cp "$CACHE_DIR/$new_image" "$SDDM_WALLPAPER_DIR"
 
 # Refresh the thumbnail directory
 rm -r "$THUMBNAIL_DIR"

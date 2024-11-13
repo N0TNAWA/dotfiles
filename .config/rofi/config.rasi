@@ -14,7 +14,6 @@ configuration {
 window {
   height: 40em;
   width: 25em;
-  transparency: "real";
   fullscreen: false;
   enabled: true;
   cursor: "default";
@@ -28,7 +27,6 @@ mainbox {
   padding: 1em;
   orientation: vertical;
   children: [ "inputbar", "listbox" ];
-  background-color: transparent;
 }
 
 // Input //

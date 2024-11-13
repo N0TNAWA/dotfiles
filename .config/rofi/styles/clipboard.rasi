@@ -1,0 +1,119 @@
+// Configuration //
+configuration {
+  modi: "drun";
+  show-icons: false;
+  drun-display-format: "{name}";
+  window-format:  "{w}{t}";
+  font: "CaskaydiaMono Nerd Font 10";
+  icon-theme: "Tela-circle-dracula";
+}
+
+@theme "~/.cache/wal/colors-rofi-dark.rasi"
+
+// Main //
+window {
+  height: 40em;
+  width: 25em;
+  transparency: "real";
+  fullscreen: false;
+  enabled: true;
+  cursor: "default";
+  spacing: 0em;
+  padding: 0em;
+}
+
+mainbox {
+  enabled: true;
+  spacing: 0em;
+  padding: 1em;
+  orientation: vertical;
+  children: [ "inputbar", "listbox" ];
+  background-color: transparent;
+}
+
+// Input //
+inputbar {
+  enabled: true;
+  spacing: 0em;
+  padding: 4em;
+  children: [ "entry" ];
+  background-image: url("~/.cache/mineral/wallpaper.png", width);
+  border-radius: 1em 1em 0em 0em;
+}
+
+entry {
+  enabled: false;
+}
+
+// List //
+listbox {
+  spacing:  0em;
+  padding:  0em;
+  children: [ "dummyt" , "listview" , "dummyb" ];
+  border-radius:  0em 0em 1em 1em;
+}
+
+listview {
+  enabled:  true;
+  spacing:  1em;
+  padding:  0.5em;
+  columns:  1;
+  lines:  12;
+  cycle:  true;
+  dynamic:  true;
+  scrollbar:  false;
+  layout: vertical;
+  reverse:  false;
+  expand: false;
+  fixed-height: true;
+  fixed-columns:  true;
+  cursor: "default";
+}
+
+dummyt {
+  spacing:  0em;
+  padding:  0em;  
+}
+
+dummyb {
+  spacing:  0em;
+  padding:  0em;
+  border-radius:  0em 0em 1em 1em;
+}
+
+// Elements //
+element {
+    enabled:  true;
+    spacing:  1em;
+    padding:  0.2em 0.2em 0.2em 1.5em;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+element selected.normal {
+    border-radius: 0.5em;
+}
+
+element-icon {
+    size: 4.5em;
+    cursor: inherit;
+    background-color: transparent;
+}
+
+element-text {
+    vertical-align: 0.5;
+    horizontal-align: 0.0;
+    cursor: inherit;
+    background-color: transparent;
+}
+
+// Error message //
+error-message {
+    text-transform: capitalize;
+    children: [ "textbox" ];
+}
+
+textbox {
+    vertical-align: 0.5;
+    horizontal-align: 0.5;
+}

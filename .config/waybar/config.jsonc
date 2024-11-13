@@ -23,8 +23,8 @@
   },
 
   "custom/menu": {
-    "format": "󰍜",
-    "on-click": "$HOME/.config/hypr/scripts/rofi_launcher.sh",
+    "format": "󰣇",
+    "on-click": "$HOME/.config/hypr/scripts/app_launcher.sh",
     "tooltip": true,
     "tooltip-format": "More apps"
   },
@@ -34,7 +34,8 @@
     "format": " {}",
     "return-type": "json",
     "on-click": "playerctl play-pause --player spotify",
-    "on-click-right": "playerctl next --player spotify",       "on-click-middle": "playerctl previous --player spotify",
+    "on-click-right": "playerctl next --player spotify",       
+    "on-click-middle": "playerctl previous --player spotify",
     "max-length": 50,
     "escape": true,
     "tooltip": true

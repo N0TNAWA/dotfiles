@@ -1,7 +1,9 @@
-echo -e "   Change Wallpaper\n  Screen Copy\n  Clipboard History"
+entries="  Change Wallpaper\n  Screen Copy\n  Clipboard History"
 
-case "$1" in
-	"   Change Wallpaper")
+APP=$(echo -e "$entries" | rofi -dmenu -i -theme "$HOME/dotfiles/.config/rofi/styles/menu.rasi")
+
+case "$APP" in
+	"  Change Wallpaper")
 		pkill rofi
 		sleep 0.1
 		~/.config/hypr/scripts/wallpaper.sh
