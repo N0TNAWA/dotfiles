@@ -5,7 +5,7 @@ sudo pacman -Syu
 
 essential_packages=(hyprland qt5-wayland qt6-wayland xdg-desktop-portal-hyprland qt5-graphicaleffects qt5-quickcontrols2 qt5-svg sddm cliphist xdotool kitty firefox dolphin rofi dunst grim slurp hyprlock wl-clipboard fastfetch blueman udiskie pavucontrol zsh flatpak gtk4 gtk-engine-murrine unzip scrcpy imagemagick stow openssh tree neovim)
 
-aur_packages=(waybar-cava wlogout swaylock-effects pywal swappy swww oh-my-posh mission-center impression nwg-look tokyonight-gtk-theme-git otf-font-awesome-6.6.0-1 ttf-jetbrains-mono-nerd ttf-cascadia-mono-nerd adobe-source-han-sans-jp-fonts)
+aur_packages=(waybar-cava wlogout swaylock-effects pywal swappy swww oh-my-posh mission-center impression network-manager-applet nwg-look tokyonight-gtk-theme-git otf-font-awesome-6.6.0-1 ttf-jetbrains-mono-nerd ttf-cascadia-mono-nerd adobe-source-han-sans-jp-fonts)
 
 flatpak_packages=(com.github.tchx84.Flatseal)
 
@@ -44,8 +44,8 @@ echo "Using stow to set up symlinks from ~/dotfiles to ~/.config"
 
 stow .
 
-echo "Setting up color scheme"
-wal -i "$HOME/Wallpapers/1.png"
+echo "Setting up wallpaper and color scheme"
+swww img "$HOME/Wallpapers/1.png" && wal -i "$HOME/Wallpapers/1.png"
 
 echo "Done setting up config symlinks."
 echo "Copying over assets."
@@ -53,7 +53,7 @@ echo "Copying over assets."
 usr=$(whoami)
 
 sudo cp -r "$HOME/dotfiles/.config/assets/sugar-candy" "/usr/share/sddm/themes"
-chown -R "$usr" "/usr/share/sddm/themes/sugar-candy"
+sudo chown -R "$usr" "/usr/share/sddm/themes/sugar-candy"
 
 sudo cp "$HOME/dotfiles/.config/assets/default.conf" "/usr/lib/sddm/sddm.conf.d/default.conf"
 

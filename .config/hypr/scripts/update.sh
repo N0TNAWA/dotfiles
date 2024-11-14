@@ -3,7 +3,7 @@
 # Function to check for and display Pacman package updates
 function check_pacman_updates {
     echo "Checking for Arch Linux package updates..."
-    pacman_updates=$(checkupdates 2> /dev/null | wc -l)
+    pacman_updates=$( (while pgrep -x checkupdates > /dev/null ; do sleep 1; done) ; checkupdates | wc -l)
     echo "Packages to update with pacman: $pacman_updates"
 }
 

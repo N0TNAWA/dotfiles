@@ -8,7 +8,7 @@
 
   "custom/pacman": {
     "interval": 3600, 
-    "exec": "$HOME/.config/waybar/scripts/fetch_update.sh", 
+    "exec": "$HOME/.config/hypr/scripts/fetch_update.sh", 
     "return-type": "json",
     "format": "󰚰   {}",
     "on-click": "kitty --title systemupdate sh -c '~/.config/waybar/scripts/update.sh'",
@@ -30,7 +30,7 @@
   },
 
   "custom/spotify": {
-    "exec": "$HOME/.config/waybar/scripts/mediaplayer.py --player spotify",
+    "exec": "$HOME/.config/hypr/scripts/mediaplayer.py --player spotify",
     "format": " {}",
     "return-type": "json",
     "on-click": "playerctl play-pause --player spotify",
@@ -128,7 +128,7 @@
   },
 
   "custom/weather": {
-    "exec": "${HOME}/.config/waybar/scripts/get_weather.sh Stockholm+Sweden",
+    "exec": "$HOME/.config/hypr/scripts/get_weather.sh Stockholm+Sweden",
     "return-type": "json",
     "format": "{}",
     "tooltip": true,

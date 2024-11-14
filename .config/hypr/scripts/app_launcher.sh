@@ -1,9 +1,9 @@
-entries="  Change Wallpaper\n  Screen Copy\n  Clipboard History"
+entries="󰋩  Change Wallpaper\n  Screen Copy\n  Clipboard History\n󰈀  Network Manager\n  Audio Settings\n  Mission Center"
 
 APP=$(echo -e "$entries" | rofi -dmenu -i -theme "$HOME/dotfiles/.config/rofi/styles/menu.rasi")
 
 case "$APP" in
-	"  Change Wallpaper")
+	"󰋩  Change Wallpaper")
 		pkill rofi
 		sleep 0.1
 		~/.config/hypr/scripts/wallpaper.sh
@@ -23,6 +23,27 @@ case "$APP" in
 		~/.config/hypr/scripts/clipboard.sh
 		exit 1
 		;;
+
+  "󰈀  Network Manager")
+    pkill rofi
+    sleep 0.1
+    nm-connection-editor
+    exit 1
+    ;;
+
+  "  Audio Settings")
+    pkill rofi
+    sleep 0.1
+    pavucontrol
+    exit 1
+    ;;
+
+  "  Mission Center")
+    pkill rofi
+    sleep 0.1
+    missioncenter
+    exit 1
+    ;;
 
 	*)
 		exit 1

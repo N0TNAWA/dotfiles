@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Check for Pacman updates
-pacman_updates=$(checkupdates 2> /dev/null | wc -l)
+pacman_updates=$( (while pgrep -x checkupdates > /dev/null ; do sleep 1 ; done) ; checkupdates | wc -l)
 
 # Check for Flatpak updates
 if command -v flatpak &> /dev/null; then
