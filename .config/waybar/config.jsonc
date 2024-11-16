@@ -96,7 +96,7 @@
   },
 
   "network": {
-    "interface": "enp1s0",
+    "interface": "eno1",
     "format": "{ifname}",
     /*"format-wifi": "{icon}   {essid}",*/
     /*"format-ethernet": "󰈀   {ipaddr}/{cidr}",*/
