@@ -5,7 +5,7 @@ sudo pacman -Syu
 
 essential_packages=(hyprland qt5-wayland qt6-wayland xdg-desktop-portal-hyprland qt5-graphicaleffects qt5-quickcontrols2 qt5-svg sddm cliphist xdotool kitty firefox dolphin rofi dunst grim slurp hyprlock wl-clipboard fastfetch blueman udiskie pavucontrol zsh flatpak gtk4 gtk-engine-murrine unzip scrcpy imagemagick stow openssh tree neovim)
 
-aur_packages=(waybar-cava wlogout swaylock-effects pywal swappy swww oh-my-posh mission-center spotify-launcher spicetify-cli impression network-manager-applet nwg-look otf-font-awesome-6.6.0-1 ttf-jetbrains-mono-nerd ttf-cascadia-mono-nerd adobe-source-han-sans-jp-fonts)
+aur_packages=(waybar-cava wlogout swaylock-effects pywal swappy swww oh-my-posh obs-studio mission-center spotify-launcher spicetify-cli impression network-manager-applet nwg-look otf-font-awesome-6.6.0-1 ttf-jetbrains-mono-nerd ttf-cascadia-mono-nerd adobe-source-han-sans-jp-fonts)
 
 flatpak_packages=(com.github.tchx84.Flatseal)
 

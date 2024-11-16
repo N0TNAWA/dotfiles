@@ -9,21 +9,25 @@ These are the packages you require to have before installing my dotfiles.
 ### Arch linux minimal install with multilib enabled in the pacman.conf file
 
 ### Update your system
+Checks if everything is up-to date.
 ```
 sudo pacman -Syu
 ```
 
 ### git
+git is what we are gonna use to pull github repositories.
 ```
 sudo pacman -S git
 ```
 
 ### base-devel
+base-devel enables us to install aur packages.
 ```
 sudo pacman -S base-devel
 ```
 
 ### paru
+Paru is going to be our aur helper. An aur helper just essentially installs packages from the aur easier.
 ```
 git clone https://aur.archlinux.org/paru.git
 cd paru
