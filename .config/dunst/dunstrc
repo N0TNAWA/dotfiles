@@ -7,22 +7,22 @@
     frame_width = 2
 
     # Placeholder colors to be updated by the script
-    background = "#121314"
-    foreground = "#c3c4c4"
-    frame_color = "#637B86"
+    background = "#191918"
+    foreground = "#c5c5c5"
+    frame_color = "#B46C87"
 
 [urgency_low]
-    background = "#121314"
-    foreground = "#c3c4c4"
-    frame_color = "#637B86"
+    background = "#191918"
+    foreground = "#c5c5c5"
+    frame_color = "#B46C87"
 
 [urgency_normal]
-    background = "#121314"
-    foreground = "#c3c4c4"
-    frame_color = "#637B86"
+    background = "#191918"
+    foreground = "#c5c5c5"
+    frame_color = "#B46C87"
 
 [urgency_critical]
-    background = "#121314"
-    foreground = "#c3c4c4"
-    frame_color = "#637B86"
+    background = "#191918"
+    foreground = "#c5c5c5"
+    frame_color = "#B46C87"
 
