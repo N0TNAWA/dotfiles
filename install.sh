@@ -5,9 +5,9 @@ sudo pacman -Syu
 
 essential_packages=(hyprland qt5-wayland qt6-wayland xdg-desktop-portal-hyprland qt5-graphicaleffects qt5-quickcontrols2 qt5ct qt6ct qt5-svg kvantum kvantum-qt5 sddm cliphist xdotool kitty firefox dolphin rofi dunst grim slurp hyprlock wl-clipboard fastfetch blueman udiskie pavucontrol zsh flatpak gtk4 gtk-engine-murrine unzip scrcpy imagemagick stow openssh tree neovim)
 
-aur_packages=(waybar-cava wlogout swaylock-effects pywal swappy swww oh-my-posh obs-studio mission-center spotify-launcher spicetify-cli impression network-manager-applet nwg-look otf-font-awesome-6.6.0-1 ttf-jetbrains-mono-nerd ttf-cascadia-mono-nerd adobe-source-han-sans-jp-fonts)
+aur_packages=(waybar-cava wlogout swaylock-effects pywal swappy swww oh-my-posh pacman-contrib obs-studio spotify-launcher spicetify-cli network-manager-applet nwg-look otf-font-awesome-6.6.0-1 ttf-jetbrains-mono-nerd ttf-cascadia-mono-nerd adobe-source-han-sans-jp-fonts)
 
-flatpak_packages=(com.github.tchx84.Flatseal)
+flatpak_packages=(com.github.tchx84.Flatseal io.missioncenter.MissionCenter io.gitlab.adhami3310.Impression)
 
 # Install packages
 
@@ -44,7 +44,7 @@ fi
 
 echo "Do you want to install nvidia drivers?(Y/n)"
 if [[ "$choice" =~ ^[Yy]$ ]]; then
-  nvidia_packages=(nvidia-dkms nvidia-utils nvidia-settings lib32-nvidia-utils nvidia-libgl lib32-nvidia-libgl vulkan-icd-loader lib32-vulkan-icd-loader libvdpau mesa vdpauinfo libglvnd libva libva-utils lib32-mesa lib32-libvdpau lib32-libva-vdpau-driver lib32-libglvnd lib32-libva)
+  nvidia_packages=(nvidia nvidia-utils nvidia-settings lib32-nvidia-utils nvidia-libgl lib32-nvidia-libgl vulkan-icd-loader lib32-vulkan-icd-loader libvdpau mesa vdpauinfo libglvnd libva libva-utils lib32-mesa lib32-libvdpau lib32-libva-vdpau-driver lib32-libglvnd lib32-libva)
 
   sudo pacman -S "${nvidia_packages[@]}"
 
