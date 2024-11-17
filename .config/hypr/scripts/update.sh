@@ -120,7 +120,9 @@ if [[ "$choice" =~ ^[Yy]$ ]]; then
     sudo reboot
 else
     echo "Update finished without reboot."
-    ~/dotfiles/.config/hypr/scripts/fetch_update.sh
+    check_pacman_update
+    check_flatpak_update
+    check_aur_updates
 fi
 
 

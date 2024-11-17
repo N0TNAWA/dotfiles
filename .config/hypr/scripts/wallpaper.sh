@@ -28,7 +28,7 @@ WALLPAPER=$(echo -e "$entries" | rofi -dmenu -i -theme "$HOME/dotfiles/.config/r
 
 [ -z "$WALLPAPER"] && exit 1
 
-swww img "$WALLPAPER_DIR/$WALLPAPER" && wal -i "$WALLPAPER_DIR/$WALLPAPER" && ~/dotfiles/.config/hypr/scripts/update_dunst_colors.sh
+swww img "$WALLPAPER_DIR/$WALLPAPER" && wal -i "$WALLPAPER_DIR/$WALLPAPER" && ~/dotfiles/.config/hypr/scripts/update_dunst_colors.sh && pywal-spicetify text
 
 # Put current wallpaper in a asset directory
 cp "$WALLPAPER_DIR/$WALLPAPER" "$CACHE_DIR"
