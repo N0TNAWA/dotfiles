@@ -30,7 +30,7 @@ for app in "${flatpak_packages[@]}"; do
   flatpak install -y "$app"
 done
 
-echo "Do you want to install wine?(Y/n)"
+read -p "Do you want to install wine?(Y/n): " choice
 if [[ "$choice" =~ ^[Yy]$ ]]; then
   wine_packages=(wine-staging giflib lib32-giflib libpng lib32-libpng libldap lib32-libldap gnutls lib32-gnutls mpg123 lib32-mpg123 openal lib32-openal v4l-utils lib32-v4l-utils libpulse lib32-libpulse libgpg-error lib32-libgpg-error alsa-plugins lib32-alsa-plugins alsa-lib lib32-alsa-lib libjpeg-turbo lib32-libjpeg-turbo sqlite lib32-sqlite libxcomposite lib32-libxcomposite libxinerama lib32-libgcrypt libgcrypt lib32-libxinerama ncurses lib32-ncurses ocl-icd lib32-ocl-icd libxslt lib32-libxslt libva lib32-libva gtk3 lib32-gtk3 gst-plugins-base-libs lib32-gst-plugins-base-libs vulkan-icd-loader lib32-vulkan-icd-loader)
   
@@ -42,7 +42,7 @@ else
   echo "Skipping wine installation."
 fi
 
-echo "Do you want to install nvidia drivers?(Y/n)"
+read -p "Do you want to install nvidia drivers?(Y/n): " choice
 if [[ "$choice" =~ ^[Yy]$ ]]; then
   nvidia_packages=(nvidia nvidia-utils nvidia-settings lib32-nvidia-utils nvidia-libgl lib32-nvidia-libgl vulkan-icd-loader lib32-vulkan-icd-loader libvdpau mesa vdpauinfo libglvnd libva libva-utils lib32-mesa lib32-libvdpau lib32-libva-vdpau-driver lib32-libglvnd lib32-libva)
 

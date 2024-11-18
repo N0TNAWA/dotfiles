@@ -2,9 +2,8 @@
 
 # Function to check for and display Pacman package updates
 function check_pacman_updates {
-    echo "Checking for Arch Linux package updates..."
     pacman_updates=$( (while pgrep -x checkupdates > /dev/null ; do sleep 1; done) ; checkupdates | wc -l)
-    echo "Packages to update with pacman: $pacman_updates"
+    echo "[Pacman]: $pacman_updates"
 }
 
 # Function to perform Pacman updates
@@ -24,9 +23,8 @@ function update_pacman {
 # Function to check for and display Flatpak updates
 function check_flatpak_updates {
     if command -v flatpak &> /dev/null; then
-        echo "Checking for Flatpak updates..."
         flatpak_updates=$(flatpak remote-ls --updates 2> /dev/null | wc -l)
-        echo "Flatpak apps to update: $flatpak_updates"
+        echo "[Flatpak]: $flatpak_updates"
     else
         flatpak_updates=0
         echo "Flatpak is not installed, skipping Flatpak check."
@@ -50,13 +48,11 @@ function update_flatpak {
 # Function to check for and display AUR updates
 function check_aur_updates {
     if command -v paru &> /dev/null; then
-        echo "Checking for AUR updates..."
         aur_updates=$(paru -Qu --aur 2> /dev/null | wc -l)
-        echo "AUR packages to update: $aur_updates"
+        echo "[AUR]: $aur_updates"
     elif command -v yay &> /dev/null; then
-        echo "Checking for AUR updates..."
         aur_updates=$(yay -Qu --aur 2> /dev/null | wc -l)
-        echo "AUR packages to update: $aur_updates"
+        echo "[AUR]: $aur_updates"
     else
         aur_updates=0
         echo "AUR helper not installed. Install paru or yay to enable AUR updates."
