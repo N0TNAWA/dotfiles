@@ -81,6 +81,11 @@ Depends=mkinitcpio
 When=PostTransaction
 Exec=/usr/bin/mkinitcpio -P
 ```
+After adding those lines we want to build out initramfs. To do that we simply type
+```
+sudo mkinitcpio -P
+```
+
 these lines just tells the drviers to update whenever /usr/bin/mkinitcpio -P is executed. Which happens every update.
 
 Now if you did everything right you should now only need to reboot.
