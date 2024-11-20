@@ -116,9 +116,6 @@ if [[ "$choice" =~ ^[Yy]$ ]]; then
     sudo reboot
 else
     echo "Update finished without reboot."
-    check_pacman_update
-    check_flatpak_update
-    check_aur_updates
 fi
 
 

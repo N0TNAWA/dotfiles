@@ -2,7 +2,7 @@
   "layer": "top",
   "position": "top",
   "margin-top": 13,
-  "modules-left": ["custom/power", "custom/menu", "custom/pacman", "clock", "custom/weather"],
+  "modules-left": ["custom/power", "custom/menu", "custom/pacman", "clock", "custom/weather", "hyprland/window"],
   "modules-center": ["hyprland/workspaces"],
   "modules-right": ["custom/spotify", "cava", "pulseaudio", "battery", "network"],
 
@@ -78,7 +78,7 @@
   },
 
   "pulseaudio": {
-    "format": "{icon}  {volume}%",
+    "format": "{icon}   {volume}%",
     "format-bluetooth": "󰂱  {volume}%",
     "format-muted": "󰖁",
     "scroll-step": 1,
