@@ -77,6 +77,22 @@ window#waybar {
     padding: 0 15px 0 15px;
 }
 
+#memory {
+    color: @color4; /* color3 */
+    background-color: @background; /* background */
+    margin: 0 15px 0 0;
+    padding: 0 15px 0 15px;
+
+}
+
+#cpu {
+    color: @color6; /* color3 */
+    background-color: @background; /* background */
+    margin: 0 15px 0 0;
+    padding: 0 15px 0 15px;
+
+}
+
 #custom-spotify {
     color: @color9;
     background-color: @background;
@@ -113,7 +129,7 @@ window#waybar {
 }
 
 #network {
-    color: @color4; /* color4 */
+    color: @color9; /* color4 */
 }
 
 #pulseaudio {
