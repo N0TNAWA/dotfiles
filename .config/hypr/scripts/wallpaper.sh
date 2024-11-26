@@ -10,7 +10,7 @@ mkdir -p "$THUMBNAIL_DIR"
 
 # Making thumbnail
 for wallpaper in "$WALLPAPER_DIR"/*; do
-	thumbnail="$THUMBNAIL_DIR/$(basename "$wallpaper").png"
+  thumbnail="$THUMBNAIL_DIR/$(basename "$wallpaper".png)" && "$THUMBNAIL_DIR/$(basename "$wallpaper".jpg)" && "$THUMBNAIL_DIR/$(basename "$wallpaper".gif)"
 	if [ ! -f "$thumbnail" ]; then
         	magick "$wallpaper" -resize 512x512 "$thumbnail"
 	fi
@@ -20,7 +20,7 @@ done
 entries=""
 for wallpaper in "$WALLPAPER_DIR"/*; do
 	name=$(basename "$wallpaper")
-	icon="$THUMBNAIL_DIR/$name.png"
+	icon="$THUMBNAIL_DIR/$name.png" && "$THUMBNAIL_DIR/$name.jpg" && "$THUMBNAIL_DIR/$name.gif"
 	entries+="$name\0icon\x1f$icon\n"
 done
 
