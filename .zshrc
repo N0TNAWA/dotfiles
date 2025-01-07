@@ -16,6 +16,12 @@ zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 
+# Exports
+export __GL_VR_DISALLOW_HMD=0
+export VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/nvidia_icd.json
+export VK_LAYER_PATH=/usr/share/vulkan/explicit_layer.d
+export __GLX_VENDOR_LIBRARY_NAME=nvidia
+
 # Load completions
 autoload -U compinit && compinit
 
