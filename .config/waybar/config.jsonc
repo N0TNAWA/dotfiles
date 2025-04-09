@@ -2,9 +2,9 @@
   "layer": "top",
   "position": "top",
   "margin-top": 13,
-  "modules-left": ["custom/power", "custom/menu", "custom/pacman", "clock", "custom/weather", "hyprland/window"],
-  "modules-center": ["hyprland/workspaces"],
-  "modules-right": ["custom/spotify", "cava", "pulseaudio", "battery", "memory", "cpu", "network"],
+  "modules-left": ["custom/l_end", "custom/power" , "custom/menu", "custom/r_end", "custom/l_end", "hyprland/workspaces", "custom/r_end"],
+  "modules-center": ["custom/l_end", "clock", "custom/spotify", "cava", "custom/r_end"],
+  "modules-right": ["custom/l_end","pulseaudio", "battery", "memory", "cpu", "custom/pacman", "network", "custom/r_end"],
 
   "custom/pacman": {
     "interval": 3600, 
@@ -145,5 +145,47 @@
     "format": "{}",
     "tooltip": true,
     "interval": 3600
+  },
+
+  "custom/l_end": {
+    "format": " ",
+    "interval" : "once",
+    "tooltip": false
+  },
+
+  "custom/r_end": {
+    "format": " ",
+    "interval" : "once",
+    "tooltip": false
+  },
+
+  "custom/sl_end": {
+    "format": " ",
+    "interval" : "once",
+    "tooltip": false
+  },
+
+  "custom/sr_end": {
+    "format": " ",
+    "interval" : "once",
+    "tooltip": false
+  },
+
+  "custom/rl_end": {
+    "format": " ",
+    "interval" : "once",
+    "tooltip": false
+  },
+
+  "custom/rr_end": {
+    "format": " ",
+    "interval" : "once",
+    "tooltip": false
+  },
+
+  "custom/padd": {
+    "format": "  ",
+    "interval" : "once",
+    "tooltip": false
   }
 }

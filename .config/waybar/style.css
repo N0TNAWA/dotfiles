@@ -4,7 +4,7 @@
     font-family: "CaskaydiaMono Nerd Font";
     font-weight: bold;
     font-size: 13px;
-    border-radius: 10px;
+    border-radius: 0px;
 }
 
 window#waybar {
@@ -17,16 +17,18 @@ window#waybar {
     text-shadow: none;
     border: none;
 
+    color: @color4;
+
     transition: all 0.2s ease;
 }
 
 #workspaces button.active {
-    color: @foreground;
+    color: @color1;
 }
 
 #workspaces button:hover {
     background: @background;
-    color: @foreground;
+    color: @color1;
     box-shadow: none;
     text-shadow: none;
     border: none;
@@ -35,7 +37,7 @@ window#waybar {
 #workspaces {
     background-color: @background;
     padding: 0 5.6px 0 0;
-    margin: 0 15px 0 
+    margin: 0; 
 }
 
 #window {
@@ -53,34 +55,82 @@ window#waybar {
     margin-right: 12px;    
 }
 
+#custom-l_end,
+#custom-r_end,
+#custom-sl_end,
+#custom-sr_end,
+#custom-rl_end,
+#custom-rr_end {
+  background-color: @background;
+  margin: 0px 0px 0px 0px;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#custom-r_end {
+    border-radius: 0px 10px 10px 0px;
+    margin-right: 9px;
+    padding-right: 3px;
+}
+
+#custom-l_end {
+    border-radius: 10px 0px 0px 10px;
+    margin-left: 9px;
+    padding-left: 3px;
+}
+
+#custom-sr_end {
+    border-radius: 0px;
+    margin-right: 9px;
+    padding-right: 3px;
+}
+
+#custom-sl_end {
+    border-radius: 0px;
+    margin-left: 9px;
+    padding-left: 3px;
+}
+
+#custom-rr_end {
+    border-radius: 0px 7px 7px 0px;
+    margin-right: 9px;
+    padding-right: 3px;
+}
+
+#custom-rl_end {
+    border-radius: 7px 0px 0px 7px;
+    margin-left: 9px;
+    padding-left: 3px;
+}
+
 #battery,
 #pulseaudio,
 #backlight,
 #custom-weather {
     color: @color5; /* color5 */
     background-color: @background; /* background */
-    margin: 0 15px 0 0px;
+    margin: 0;
     padding: 0 15px 0 15px; /* top, right, bottom, left */
 }
 
 #network {
-    color: @color2; /* color2 */
+    color: @color7; /* color2 */
     background-color: @background; /* background */
     margin: 0 0px 0 0px;
     padding: 0 17px 0 14px; /* top, right, bottom, left */
 }
 
 #clock {
-    color: @color4; /* color3 */
+    color: @color3; /* color3 */
     background-color: @background; /* background */
-    margin: 0 15px 0 0;
+    margin: 0;
     padding: 0 15px 0 15px;
 }
 
 #memory {
-    color: @color4; /* color3 */
+    color: @color6; /* color3 */
     background-color: @background; /* background */
-    margin: 0 15px 0 0;
+    margin: 0;
     padding: 0 15px 0 15px;
 
 }
@@ -88,48 +138,48 @@ window#waybar {
 #cpu {
     color: @color6; /* color3 */
     background-color: @background; /* background */
-    margin: 0 15px 0 0;
+    margin: 0;
     padding: 0 15px 0 15px;
 
 }
 
 #custom-spotify {
-    color: @color9;
+    color: @color3;
     background-color: @background;
-    margin: 0 15px 0 0;
+    margin: 0;
     padding: 0 15px 0 15px;
 }
 
 #custom-pacman {
     color: @color6;
     background-color: @background;
-    margin: 0 15px 0 0;
+    margin: 0;
     padding: 0 15px 0 15px;
 }
 
 #custom-power {
-    color: @color9;
+    color: @color1;
     background: @background;
-    margin: 0 15px 0 0;
+    margin: 0;
     padding: 0 17px 0 14px;
 }
 
 #custom-menu {
-    color: @color4;
+    color: @color1;
     background: @background;
-    margin: 0 15px 0 0;
+    margin: 0;
     padding: 0 16px 0 13px;
 }
 
 #cava {
-    color: @color4;
+    color: @color3;
     background: @background;
-    margin: 0 15px 0 0;
+    margin: 0;
     padding: 0 15px 0 15px;
 }
 
 #network {
-    color: @color9; /* color4 */
+    color: @color6; /* color4 */
 }
 
 #pulseaudio {

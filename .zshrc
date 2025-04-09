@@ -35,3 +35,9 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 # Alias
 alias ls='ls --color'
 alias fucking='sudo'
+
+# Python stuff
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
+eval "$(pyenv virtualenv-init -)"
