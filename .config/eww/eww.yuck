@@ -1,1 +1,80 @@
+(defwidget spotify [] 
+    (box :class "wid_get" :orientation "h" :space-evenly "false" :vexpand "false" :hexpand "false" 
+      (box :class "album_cov" :vexpand "false" :hexpand "false" :style "background-image: url('${COVER}');")
+      (box :class "spot_text" :orientation "v" :spacing 20 :space-evenly "false" :vexpand "false" :hexpand "false" 
+        (label :halign "center" :class "song" :wrap "true" :text SONG)
+        (label :halign "center" :class "artist" :wrap "true" :text ARTIST)
+        (box :class "buttons" :orientation "h" :spacing 20 :halign "center" :space-evenly "true" :vexpand "false" :hexpand "false" 
+          (button :class "prev" :onclick "scripts/spotify/spotify-previous.sh" "󰒮")
+          (button :class "play" :onclick "scripts/spotify/spotify-pause.sh" STATUS)
+          (button :class "next" :onclick "scripts/spotify/spotify-next.sh" "󰒭")))))
 
+(defwidget profile []
+(box :orientation "v" :space-evenly "false" :class "profile"
+    (box :orientation "h" :space-evenly "false"
+      (box :class "pfp"))
+    (box :orientation "v" :space-evenly "false"
+      (box :class "pfptxt" :valign "center" {whoami})
+      (box :class "subpfptxt" :halign "center" "I love monster"))))
+
+(defwidget calendar_full [] 
+    (box :orientation "v" :halign "center" :space-evenly "false" 
+       (box :class "calendar_title" "   ${number_day} ${month_full} ${year_full}   ")
+       (box :class "calendar" 
+        (calendar :show-details "true"))))
+
+(defwidget weather_now []
+    (box :orientation "v" :space-evenly "false"
+      (box :class "weather_text" "Stockholm, Sweden")
+      (box :class "weather" {weather})))
+
+(defwidget power []
+    (box :class "power_options" :orientation "h" :space-evenly "true"
+      (button :class "power" :onclick "scripts/power.sh --p" "")
+      (button :class "reboot" :onclick "scripts/power.sh --r" "")
+      (button :class "log_out" :onclick "scripts/power.sh --l" "󰍃")
+      (button :class "hibernate" :onclick "scripts/power.sh --h" "󰤄")))
+
+
+;; Spotify vars
+(defpoll SONG :interval ".5s" `scripts/spotify/spotify-song.sh`)
+(defpoll ARTIST :interval ".5s" `scripts/spotify/spotify-artist.sh`)
+(defpoll COVER :interval ".5s" `scripts/spotify/spotify-cover.sh`)
+(defpoll STATUS :interval ".5s" `scripts/spotify/spotify-status.sh`)
+
+;; Calendar vars
+(defpoll number_day :interval "5h"  "date \"+%d\"")
+(defpoll month_full :interval "15h"  "date \"+%B\"")
+(defpoll year_full :interval "15h"  "date \"+%Y\"")
+
+;; Weather vars
+(defpoll weather :interval "1h" "./scripts/get_weather.sh Stockholm+Sweden")
+
+;; Profile vars
+(defpoll whoami :interval "50h" "whoami")
+
+(defwindow spotify
+  :monitor 0
+  :geometry (geometry :x "20px" :y "330px" :width "520px" :height "150px")
+  (spotify))
+
+(defwindow profile
+  :monitor 0
+  :geometry (geometry :x "20px" :y "10px" :width "100px" :height "310px")
+  (profile))
+
+(defwindow calendar_full
+  :monitor 0
+	:geometry (geometry :x "260px" :y "10px" :width "280px" :height "210px")
+  (calendar_full))
+
+
+(defwindow weather_now
+  :monitor 0
+	:geometry (geometry :x "260px" :y "230px" :width "280px" :height "90px")
+  (weather_now))
+
+(defwindow power
+  :monitor 0
+  :geometry (geometry :x "20px" :y "570px" :width "520px" :height "80px")
+  (power))
