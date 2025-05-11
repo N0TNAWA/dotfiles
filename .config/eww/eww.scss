@@ -25,12 +25,13 @@ window {
 
 .pfptxt {
   margin-top: 50px;
-  color: $color2;
+  color: $color1;
   font-size: 26px;
 }
 .subpfptxt {
   margin-top: 10px;
   font-size: 18px;
+  color: $color3;
 }
 
 .profile_btns {
@@ -57,13 +58,13 @@ window {
 
 .calendar {
   font-size: 14px;
-  color: $color1;
+  color: $color3;
 }
 
 .weather_cdn {
   font-size: 18px;
-  padding: 0px;
-  color: $color2;
+  padding: 3px;
+  color: $color1;
 }
 
 .weather {
@@ -75,8 +76,8 @@ window {
 
 .weather_tip {
   font-size: 18px;
-  color: $color1;
-  padding: 5px;
+  color: $color3;
+  padding: 3px;
 }
 
 .wid_get {
@@ -94,7 +95,7 @@ window {
 
 .song {
   font-size: 20px;
-  color: $color2;
+  color: $color3;
 }
 
 .artist {

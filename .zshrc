@@ -22,6 +22,11 @@ export VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/nvidia_icd.json
 export VK_LAYER_PATH=/usr/share/vulkan/explicit_layer.d
 export __GLX_VENDOR_LIBRARY_NAME=nvidia
 
+export XDG_CURRENT_DESKTOP=hyprland
+export XDG_SESSION_TYPE=wayland
+export SDL_VIDEODRIVER=wayland
+export MOZ_ENABLE_WAYLAND=1
+
 # Load completions
 autoload -U compinit && compinit
 

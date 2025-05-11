@@ -1,23 +1,46 @@
 #!/bin/bash
 
-EWW=`which eww`
+
+EWW=$(which eww)
 CFG="$HOME/.config/eww"
+LOG="$HOME/eww-toggle.log"
+WIDGETS=(profile calendar_full weather_now spotify power)
 
-## Run eww daemon if not running already
-if [[ ! `pidof eww` ]]; then
-	${EWW} daemon
-	sleep 1
-fi
 
-## Open widgets 
-run_eww() {
-	${EWW} --config "$CFG" open-many \
-		   profile \
-		   calendar_full \
-		   weather_now \
-		   spotify \
-		   power
+DAEMON_WAIT=0.2  
+OPEN_WAIT=0.1    
+
+echo "----- $(date) -----" >> "$LOG"
+
+are_widgets_open() {
+    local opened_windows
+    opened_windows=$("$EWW" --config "$CFG" list-windows 2>/dev/null)
+
+    if echo "$opened_windows" | grep -qE "$(IFS="|"; echo "${WIDGETS[*]}")"; then
+        return 0
+    else
+        return 1
+    fi
 }
 
-## Launch or close widgets accordingly
-run_eww
+
+check_daemon() {
+    if ! pgrep -x eww > /dev/null; then
+        "$EWW" daemon --config "$CFG" >> "$LOG" 2>&1 &
+        sleep $DAEMON_WAIT 
+        return 1  
+    fi
+    return 0
+}
+
+
+if are_widgets_open; then    
+    pkill -x eww
+else
+    daemon_was_running=1
+    check_daemon || daemon_was_running=0
+    
+    [ $daemon_was_running -eq 0 ] && sleep $OPEN_WAIT
+    
+    "$EWW" --config "$CFG" open-many "${WIDGETS[@]}" >> "$LOG" 2>&1 &
+fi

@@ -4,7 +4,7 @@ configuration {
   show-icons: false;
   drun-display-format: "{name}";
   window-format:  "{w}{t}";
-  font: "CaskaydiaMono Nerd Font 10";
+  font: "CaskaydiaMono Nerd Font Mono, JoyPixels 10";
   icon-theme: "Tela-circle-dracula";
 }
 

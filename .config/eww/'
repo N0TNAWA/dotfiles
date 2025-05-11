@@ -1,0 +1,134 @@
+@import '/home/nawa/.cache/wal/colors.scss';
+
+* {
+  all: unset;
+}
+
+window {
+  background-color: rgba($background,.99999);
+	color: $color1;
+  font-family: "CaskaydiaMono Nerd Font";
+  border-radius: 10px;
+}
+
+.pfp {
+  background-image: url("/home/nawa/.config/eww/images/Nawa.png");
+  background-color: #ffffff;
+  background-repeat: no-repeat;
+  background-size: 100px;
+  background-position: center;
+  min-height: 100px;
+  min-width: 100px;
+  margin: 40px 65px 0px 65px;
+  border-radius: 500px;
+}
+
+.pfptxt {
+  margin-top: 50px;
+  color: $color2;
+  font-size: 26px;
+}
+.subpfptxt {
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+.profile_btns {
+  margin-top: 15px;
+}
+
+.profile_btns button {
+  font-size: 18px;
+  color: $color13;
+  transition: .2s ease;
+}
+
+.profile_btns button:hover {
+  color: $color8;
+}
+
+
+.calendar_title {
+  font-size: 20px;
+  color: $color2;
+
+  padding: 10px;
+}
+
+.calendar {
+  font-size: 14px;
+  color: $color1;
+}
+
+.weather_cdn {
+  font-size: 18px;
+  padding: 0px;
+  color: $color2;
+}
+
+.weather {
+  font-size: 18px;
+  color: $color13;
+  margin: 1px 0px 0px 0px;
+  padding: 5px;
+}
+
+.weather_tip {
+  font-size: 18px;
+  color: $color1;
+  padding: 5px;
+}
+
+.wid_get {
+  margin: 20px;
+  padding: 20px;
+}
+
+.album_cov {
+  background-size: 150px;
+  background-color: $color3;
+  min-width: 150px;
+  min-height: 150px;
+  border-radius: 10px;
+}
+
+.song {
+  font-size: 20px;
+  color: $color2;
+}
+
+.artist {
+  font-size: 18px;
+  color: $color1;
+}
+
+.spot_text {
+  margin: 10px 0px 0px 75px;
+}
+
+.prev, .play, .next {
+  font-size: 34px;
+  color: $color13;
+  padding: 5px;
+  transition: .2s ease
+}
+
+.prev:hover, .play:hover, .next:hover {
+  color: $color8;
+}
+
+
+/*Cus im stuborn*/
+.play {
+  margin-right: 6px;
+}
+
+.power_options button {
+  font-size: 38px;
+  color: $color13;
+  transition: .2s ease;
+}
+
+.power_options button:hover {
+  color: $color8;
+}

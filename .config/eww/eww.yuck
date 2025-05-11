@@ -30,8 +30,8 @@
 
 (defwidget weather_now []
     (box :orientation "v" :space-evenly "false"
-      (box :class "weather" "${weather_temp}°C")
       (box :class "weather_cdn" "${weather_condition}")
+      (box :class "weather" "${weather_temp}°C") 
       (box :class "weather_tip" "${weather_text}")))
 
 (defwidget power []
