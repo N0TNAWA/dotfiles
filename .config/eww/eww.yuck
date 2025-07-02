@@ -30,7 +30,6 @@
 
 (defwidget weather_now []
     (box :orientation "v" :space-evenly "false"
-      (box :class "weather_cdn" "${weather_condition}")
       (box :class "weather" "${weather_temp}°C") 
       (box :class "weather_tip" "${weather_text}")))
 
@@ -40,6 +39,27 @@
       (button :class "reboot" :onclick "scripts/power.sh --r" "")
       (button :class "log_out" :onclick "scripts/power.sh --l" "󰍃")
       (button :class "hibernate" :onclick "scripts/power.sh --h" "󰤄")))
+
+(defwidget bluetooth []
+  (box :class "bluetooth" :orientation "h" :space-evenly false :spacing 10
+    (box :class "left_section" :orientation "h" :space-evenly false :spacing 8 :hexpand false
+      (label :class "bt_icon" :text "${bt_icon}")
+       (box :class "device_info" :orientation "v" :space-evenly false :spacing 2 :valign "center"
+        (label :class "bt_device" :text "${bt_device}" :halign "start")
+        (box :class "battery" :orientation "h" :space-evenly false :spacing 8 :halign "start"
+          (label :class "bt_battery" :text "${bt_battery}%" :halign "start")
+          (box :class "battery_bar_container" :width 80 :height 12
+            (box :class "battery_bar" 
+              :style "background: linear-gradient(to right, lightgreen ${bt_battery}%, #202020 ${bt_battery}%);"
+              :width 140 :height 8)))))
+     
+    (box :hexpand true)
+    
+    (box :class "disconnect_section" :halign "end" :hexpand false :valign "center"
+      (button :class "disconnect" 
+        :onclick "scripts/bluetooth.sh --dc" 
+        :width 20 :height 20
+        ""))))
 
 
 ;; Spotify vars
@@ -57,6 +77,12 @@
 (defpoll weather_temp :interval "1h" "./scripts/get_weather.sh Stockholm+Sweden --tmp")
 (defpoll weather_text :interval "1h" "./scripts/get_weather.sh Stockholm+Sweden --txt")
 (defpoll weather_condition :interval "1h" "./scripts/get_weather.sh Stockholm+Sweden --cdn")
+
+;; Bluetooth vars
+(defpoll bt_device :interval "1h" "./scripts/bluetooth.sh --device")
+(defpoll bt_battery :interval "1h" "./scripts/bluetooth.sh --battery")
+(defpoll bt_icon :interval "1h" "./scripts/bluetooth.sh --icon")
+(defpoll bt_mac :interval "1h" "./scripts/bluetooth.sh --mac")
 
 ;; Profile vars
 (defpoll whoami :interval "50h" "whoami")
@@ -86,3 +112,10 @@
   :monitor 0
   :geometry (geometry :x "20px" :y "570px" :width "520px" :height "80px")
   (power))
+
+(defwindow bluetooth
+  :monitor 0
+  :geometry (geometry :x "1450px" :y "10px" :width "450px" :height "75px")
+  :stacking "overlay"
+  :windowtype "dock"
+  (bluetooth))

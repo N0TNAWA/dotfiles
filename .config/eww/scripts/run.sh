@@ -37,10 +37,21 @@ check_daemon() {
 if are_widgets_open; then    
     pkill -x eww
 else
+  if [[ "$#" -eq 0 ]]; then
     daemon_was_running=1
     check_daemon || daemon_was_running=0
     
     [ $daemon_was_running -eq 0 ] && sleep $OPEN_WAIT
     
     "$EWW" --config "$CFG" open-many "${WIDGETS[@]}" >> "$LOG" 2>&1 &
+  else
+    WIDGET="$1"
+    
+    daemon_was_running=1
+    check_daemon || daemon_was_running=0
+    
+    [ $daemon_was_running -eq 0 ] && sleep $OPEN_WAIT
+    
+    "$EWW" --config "$CFG" open "${WIDGET}" >> "$LOG" 2>&1 &
+  fi
 fi

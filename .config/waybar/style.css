@@ -103,16 +103,6 @@ window#waybar {
     padding-left: 3px;
 }
 
-#battery,
-#pulseaudio,
-#backlight,
-#custom-weather {
-    color: @color5; /* color5 */
-    background-color: @background; /* background */
-    margin: 0;
-    padding: 0 15px 0 15px; /* top, right, bottom, left */
-}
-
 #network {
     color: @color7; /* color2 */
     background-color: @background; /* background */
@@ -155,6 +145,16 @@ window#waybar {
     background-color: @background;
     margin: 0;
     padding: 0 15px 0 15px;
+}
+
+#battery,
+#pulseaudio,
+#backlight,
+#custom-weather {
+    color: @color5; /* color5 */
+    background-color: @background; /* background */
+    margin: 0;
+    padding: 0 15px 0 15px; /* top, right, bottom, left */
 }
 
 #custom-power {
@@ -201,4 +201,11 @@ window#waybar {
     background-color: @background; /* background */
     margin: 0 0px 0 15px;
     padding: 0 15px 0 15px; /* top, right, bottom, left */
+}
+
+#custom-bluetooth {
+    color: @color6;
+    background-color: @background;
+    margin: 0 0px 0 0px;
+    padding: 0 17px 0 14px; /* top, right, bottom, left */
 }

@@ -1,10 +1,11 @@
 {
+  "output": "HDMI-A-1",
   "layer": "top",
   "position": "top",
   "margin-top": 13,
   "modules-left": ["custom/l_end", "custom/menu", "custom/r_end", "custom/l_end", "hyprland/workspaces", "custom/r_end"],
   "modules-center": ["custom/l_end", "clock", "custom/spotify", "cava", "custom/r_end"],
-  "modules-right": ["custom/l_end","pulseaudio", "battery", "memory", "cpu", "custom/pacman", "network", "custom/r_end"],
+  "modules-right": ["custom/l_end","pulseaudio", "battery", "memory", "cpu", "custom/pacman", "custom/bluetooth", "network", "custom/r_end"],
 
   "custom/pacman": {
     "interval": 3600, 
@@ -27,6 +28,13 @@
     "on-click": "~/.config/eww/scripts/run.sh",
     "tooltip": true,
     "tooltip-format": "Dashboard"
+  },
+
+  "custom/bluetooth": {
+    "format": "󰂯",
+    "on-click": "eww --config ~/.config/eww open bluetooth",
+    "tooltip": true,
+    "tooltip-format": "Connected BT devices"
   },
 
   "memory": {
