@@ -1,10 +1,10 @@
 // Configuration //
 configuration {
   modi: "drun";
-  show-icons: false;
+  show-icons: true;
   drun-display-format: "{name}";
   window-format:  "{w}{t}";
-  font: "CaskaydiaMono Nerd Font Mono, JoyPixels 10";
+  font: "CaskaydiaMono Nerd Font 10";
   icon-theme: "Tela-circle-dracula";
 }
 
@@ -14,7 +14,6 @@ configuration {
 window {
   height: 40em;
   width: 25em;
-  transparency: "real";
   fullscreen: false;
   enabled: true;
   cursor: "default";
@@ -28,7 +27,6 @@ mainbox {
   padding: 1em;
   orientation: vertical;
   children: [ "inputbar", "listbox" ];
-  background-color: transparent;
 }
 
 // Input //
@@ -38,7 +36,7 @@ inputbar {
   padding: 4em;
   children: [ "entry" ];
   background-image: url("~/.cache/mineral/wallpaper.png", width);
-  border-radius: 1em 1em 0em 0em;
+  border-radius: 0.5em 0.5em 0em 0em;
 }
 
 entry {
@@ -55,10 +53,10 @@ listbox {
 
 listview {
   enabled:  true;
-  spacing:  0.5em;
-  padding:  0.5em;
+  spacing:  0.4em;
+  padding:  1em;
   columns:  1;
-  lines:  12;
+  lines:  10;
   cycle:  true;
   dynamic:  true;
   scrollbar:  false;
@@ -95,7 +93,7 @@ element selected.normal {
 }
 
 element-icon {
-    size: 4.5em;
+    size: 2em;
     cursor: inherit;
     background-color: transparent;
 }
