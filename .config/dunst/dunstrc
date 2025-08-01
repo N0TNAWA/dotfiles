@@ -1,28 +1,33 @@
 [global]
+    script = ~/.config/hypr/scripts/notifications.sh
+
     geometry = "300x50-20+20"
-    font = "Sans 10"
+    font = "CaskaydiaMono Nerd Font 10"
     padding = 10
     transparency = 20
     corner_radius = 5
-    frame_width = 2
+    frame_width = 0
 
     # Placeholder colors to be updated by the script
-    background = "#182127"
-    foreground = "#c5c7c9"
-    frame_color = "#ADAAB9"
+    background = "#151014"
+    foreground = "#c4c3c4"
+    frame_color = "#DD9575"
 
 [urgency_low]
-    background = "#182127"
-    foreground = "#c5c7c9"
-    frame_color = "#ADAAB9"
+    background = "#151014"
+    foreground = "#c4c3c4"
+    frame_color = "#DD9575"
+    icon_position = left
 
 [urgency_normal]
-    background = "#182127"
-    foreground = "#c5c7c9"
-    frame_color = "#ADAAB9"
+    background = "#151014"
+    foreground = "#c4c3c4"
+    frame_color = "#DD9575"
+    icon_position = left
 
 [urgency_critical]
-    background = "#182127"
-    foreground = "#c5c7c9"
-    frame_color = "#ADAAB9"
+    background = "#151014"
+    foreground = "#c4c3c4"
+    frame_color = "#DD9575"
+    icon_position = left
 

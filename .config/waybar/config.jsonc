@@ -1,11 +1,11 @@
 {
-  "output": "DP-3",
+  "output": "DP-2",
   "layer": "top",
   "position": "top",
-  "margin-top": 13,
-  "modules-left": ["custom/l_end", "custom/menu", "custom/r_end", "custom/l_end", "hyprland/workspaces", "custom/r_end"],
+  "margin-top": 9,
+  "modules-left": ["custom/rl_end", "custom/menu", "hyprland/workspaces", "custom/r_end"],
   "modules-center": ["custom/l_end", "clock", "custom/spotify", "cava", "custom/r_end"],
-  "modules-right": ["custom/l_end","pulseaudio", "battery", "memory", "cpu", "custom/pacman", "custom/bluetooth", "network", "custom/r_end"],
+  "modules-right": ["custom/l_end","pulseaudio", "battery", "memory", "cpu", "custom/pacman", "custom/bluetooth", "network", "custom/rr_end"],
 
   "custom/pacman": {
     "interval": 3600, 
@@ -53,9 +53,11 @@
     "exec": "$HOME/.config/hypr/scripts/mediaplayer.py --player spotify",
     "format": " {}",
     "return-type": "json",
-    "on-click": "playerctl play-pause --player spotify",
-    "on-click-right": "playerctl next --player spotify",       
-    "on-click-middle": "playerctl previous --player spotify",
+    "on-click": "$HOME/.config/hypr/scripts/spotifyctl.sh --pause",
+    "on-click-right": "$HOME/.config/hypr/scripts/spotifyctl.sh --next",       
+    "on-click-middle": "$HOME/.config/hypr/scripts/spotifyctl.sh --previous",
+    "on-scroll-up": "$HOME/.config/hypr/scripts/spotifyctl.sh --volume -u",
+    "on-scroll-down": "$HOME/.config/hypr/scripts/spotifyctl.sh --volume -d",
     "max-length": 50,
     "escape": true,
     "tooltip": true
@@ -116,7 +118,7 @@
   },
 
   "network": {
-    "interface": "eno1",
+    "interface": "enp12s0",
     "format": "{ifname}",
     /*"format-wifi": "{icon}   {essid}",*/
     /*"format-ethernet": "󰈀   {ipaddr}/{cidr}",*/

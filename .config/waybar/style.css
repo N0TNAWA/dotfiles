@@ -4,7 +4,6 @@
     font-family: "CaskaydiaMono Nerd Font";
     font-weight: bold;
     font-size: 13px;
-    border-radius: 0px;
 }
 
 window#waybar {
@@ -47,20 +46,12 @@ window#waybar {
     margin: 0 15px 0 0;
 }
 
-.modules-left {
-    margin-left: 12px;    
-}
-
-.modules-right {
-    margin-right: 12px;    
-}
-
 #custom-l_end,
 #custom-r_end,
 #custom-sl_end,
 #custom-sr_end,
 #custom-rl_end,
-#custom-rr_end {
+#custom-rr_end{
   background-color: @background;
   margin: 0px 0px 0px 0px;
   padding-left: 4px;
@@ -92,13 +83,13 @@ window#waybar {
 }
 
 #custom-rr_end {
-    border-radius: 0px 7px 7px 0px;
+    border-radius: 0px 10px 10px 0px;
     margin-right: 9px;
     padding-right: 3px;
 }
 
 #custom-rl_end {
-    border-radius: 7px 0px 0px 7px;
+    border-radius: 10px 0px 0px 10px;
     margin-left: 9px;
     padding-left: 3px;
 }

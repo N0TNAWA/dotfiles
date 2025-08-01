@@ -10,6 +10,7 @@ fi
 
 # Source and load zinit
 source "${ZINIT_HOME}/zinit.zsh"
+source /usr/share/nvm/init-nvm.sh
 
 # Plugins
 zinit light zsh-users/zsh-syntax-highlighting
@@ -22,6 +23,7 @@ export VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/nvidia_icd.json
 export VK_LAYER_PATH=/usr/share/vulkan/explicit_layer.d
 export __GLX_VENDOR_LIBRARY_NAME=nvidia
 
+export QML_XHR_ALLOW_FILE_READ=1
 export XDG_CURRENT_DESKTOP=hyprland
 export XDG_SESSION_TYPE=wayland
 export SDL_VIDEODRIVER=wayland
