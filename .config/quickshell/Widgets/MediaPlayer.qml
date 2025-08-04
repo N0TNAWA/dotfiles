@@ -17,7 +17,7 @@ Rectangle {
   Rectangle {
     id: card
     anchors.fill: parent
-    color: Wal.color9
+    color: Wal.color0
     radius: 5
 
     Item {

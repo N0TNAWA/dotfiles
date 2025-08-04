@@ -3,102 +3,69 @@
   "layer": "top",
   "position": "top",
   "margin-top": 9,
-  "modules-left": ["custom/rl_end", "custom/menu", "hyprland/workspaces", "custom/r_end"],
-  "modules-center": ["custom/l_end", "clock", "custom/spotify", "cava", "custom/r_end"],
-  "modules-right": ["custom/l_end","pulseaudio", "battery", "memory", "cpu", "custom/pacman", "custom/bluetooth", "network", "custom/rr_end"],
 
-  "custom/pacman": {
-    "interval": 3600, 
-    "exec": "$HOME/.config/hypr/scripts/fetch_update.sh", 
-    "return-type": "json",
-    "format": "󰚰   {}",
-    "on-click": "kitty --title systemupdate sh -c '~/.config/hypr/scripts/update.sh'",
-    "tooltip": true
-  },
+  "modules-left": [
+    "custom/rl_end",
+    "custom/menu",
+    "hyprland/workspaces",
+    "custom/r_end"
+  ],
+  "modules-center": [
+    "custom/l_end",
+    "clock",
+    "custom/spotify",
+    "cava",
+    "custom/r_end"
+  ],
+  "modules-right": [
+    "custom/l_end",
+    "pulseaudio",
+    "battery",
+    "memory",
+    "cpu",
+    "custom/pacman",
+    "custom/bluetooth",
+    "network",
+    "custom/rr_end"
+  ],
 
-  "custom/power": {
-    "format": "⏻",
-    "on-click": "wlogout",
-    "tooltip": true,
-    "tooltip-format": "Power options"
-  },
-
-  "custom/menu": {
-    "format": "󰣇",
-    "on-click": "~/.config/eww/scripts/run.sh",
-    "tooltip": true,
-    "tooltip-format": "Dashboard"
-  },
-
-  "custom/bluetooth": {
-    "format": "󰂯",
-    "on-click": "eww --config ~/.config/eww open bluetooth",
-    "tooltip": true,
-    "tooltip-format": "Connected BT devices"
-  },
-
+  /* === System Info === */
   "memory": {
     "interval": 5,
     "format": "   {}%",
     "max-length": 10
   },
-
   "cpu": {
     "interval": 10,
     "format": "   {usage}%",
     "max-length": 10
   },
-
-  "custom/spotify": {
-    "exec": "$HOME/.config/hypr/scripts/mediaplayer.py --player spotify",
-    "format": " {}",
-    "return-type": "json",
-    "on-click": "$HOME/.config/hypr/scripts/spotifyctl.sh --pause",
-    "on-click-right": "$HOME/.config/hypr/scripts/spotifyctl.sh --next",       
-    "on-click-middle": "$HOME/.config/hypr/scripts/spotifyctl.sh --previous",
-    "on-scroll-up": "$HOME/.config/hypr/scripts/spotifyctl.sh --volume -u",
-    "on-scroll-down": "$HOME/.config/hypr/scripts/spotifyctl.sh --volume -d",
-    "max-length": 50,
-    "escape": true,
-    "tooltip": true
-  },
-
-  "cava": {
-//  "cava_config": "$XDG_CONFIG_HOME/cava/cava.conf",
-    "framerate": 144,
-    "autosens": 1,
-    "sensitivity": 2,
-    "bars": 14,
-    "lower_cutoff_freq": 50,
-    "higher_cutoff_freq": 10000,
-    "method": "pulse",
-    "source": "auto",
-    "stereo": true,
-    "reverse": false,
-    "bar_delimiter": 0,
-    "monstercat": false,
-    "waves": false,
-    "noise_reduction": 0.77,
-    "input_delay": 2,
-    "format-icons" : ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█" ],
-    "actions": {
-      "on-click-right": "mode"
-    }
-  },
-
   "battery": {
     "format": "{icon}  {capacity}%",
     "format-charging": "󰂄  {capacity}%",
-    "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+    "format-icons": [
+      "󰁺", "󰁻", "󰁼", "󰁽", "󰁾",
+      "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"
+    ]
   },
-
-  "clock": {
-    "format": "󰥔   {:%I:%M %p}",
-    "format-alt": "󰥔   {:%a, %d. %b  %I:%M %p}",
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "{icon}   {percent}%",
+    "format-icons": ["󰃞", "󰃟", "󰃠"]
+  },
+  "network": {
+    "interface": "enp12s0",
+    "format": "{ifname}",
+    "format-wifi": "{icon}",
+    "format-ethernet": "󰈀",
+    "format-disconnected": "󰤭   disconnected",
+    "max-length": 50,
     "tooltip": true,
-    "tooltip-format": "󰥔   {:%a, %d. %b  %I:%M %p}"
+    "tooltip-format": "{ifname}",
+    "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"]
   },
 
+  /* === Audio === */
   "pulseaudio": {
     "format": "{icon}   {volume}%",
     "format-bluetooth": "󰂱  {volume}%",
@@ -117,38 +84,77 @@
     }
   },
 
-  "network": {
-    "interface": "enp12s0",
-    "format": "{ifname}",
-    /*"format-wifi": "{icon}   {essid}",*/
-    /*"format-ethernet": "󰈀   {ipaddr}/{cidr}",*/
-    "format-wifi": "{icon}",
-    "format-ethernet": "󰈀",
-    "format-disconnected": "󰤭   disconnected",
-    "max-length": 50,
-    "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+  /* === Clock === */
+  "clock": {
+    "format": "󰥔   {:%I:%M %p}",
+    "format-alt": "󰥔   {:%a, %d. %b  %I:%M %p}",
     "tooltip": true,
-    "tooltip-format": "{ifname}"
+    "tooltip-format": "󰥔   {:%a, %d. %b  %I:%M %p}"
   },
 
-  "hyprland/workspaces": {
-    "format": "{icon}",
-    "on-click": "activate",
-    "format-icons": {
-      "urgent": "󰀨",
-      "active": "",
-      "default": ""
-    },
-
-    "sort-by-number": true
+  /* === Cava Visualizer === */
+  "cava": {
+    "framerate": 144,
+    "autosens": 1,
+    "sensitivity": 2,
+    "bars": 14,
+    "lower_cutoff_freq": 50,
+    "higher_cutoff_freq": 10000,
+    "method": "pulse",
+    "source": "auto",
+    "stereo": true,
+    "reverse": false,
+    "bar_delimiter": 0,
+    "monstercat": false,
+    "waves": false,
+    "noise_reduction": 0.77,
+    "input_delay": 2,
+    "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
+    "actions": {
+      "on-click-right": "mode"
+    }
   },
 
-  "backlight": {
-    "device": "intel_backlight",
-    "format": "{icon}   {percent}%",
-    "format-icons": ["󰃞", "󰃟", "󰃠"]
+  /* === Custom Scripts === */
+  "custom/pacman": {
+    "interval": 3600,
+    "exec": "$HOME/.config/hypr/scripts/fetch_update.sh",
+    "return-type": "json",
+    "format": "󰚰   {}",
+    "on-click": "kitty --title systemupdate sh -c '~/.config/hypr/scripts/update.sh'",
+    "tooltip": true
   },
-
+  "custom/spotify": {
+    "exec": "$HOME/.config/hypr/scripts/mediaplayer.py --player spotify",
+    "format": " {}",
+    "return-type": "json",
+    "on-click": "$HOME/.config/hypr/scripts/spotifyctl.sh --pause",
+    "on-click-right": "$HOME/.config/hypr/scripts/spotifyctl.sh --next",
+    "on-click-middle": "$HOME/.config/hypr/scripts/spotifyctl.sh --previous",
+    "on-scroll-up": "$HOME/.config/hypr/scripts/spotifyctl.sh --volume -u",
+    "on-scroll-down": "$HOME/.config/hypr/scripts/spotifyctl.sh --volume -d",
+    "max-length": 50,
+    "escape": true,
+    "tooltip": true
+  },
+  "custom/bluetooth": {
+    "format": "󰂯",
+    "on-click": "eww --config ~/.config/eww open bluetooth",
+    "tooltip": true,
+    "tooltip-format": "Connected BT devices"
+  },
+  "custom/power": {
+    "format": "⏻",
+    "on-click": "wlogout",
+    "tooltip": true,
+    "tooltip-format": "Power options"
+  },
+  "custom/menu": {
+    "format": "󰣇",
+    "on-click": "~/.config/hypr/scripts/quickshell.sh",
+    "tooltip": true,
+    "tooltip-format": "Dashboard"
+  },
   "custom/weather": {
     "exec": "$HOME/.config/hypr/scripts/get_weather.sh Stockholm+Sweden",
     "return-type": "json",
@@ -157,45 +163,24 @@
     "interval": 3600
   },
 
-  "custom/l_end": {
-    "format": " ",
-    "interval" : "once",
-    "tooltip": false
+  /* === Hyprland Workspaces === */
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "on-click": "activate",
+    "format-icons": {
+      "urgent": "󰀨",
+      "active": "",
+      "default": ""
+    },
+    "sort-by-number": true
   },
 
-  "custom/r_end": {
-    "format": " ",
-    "interval" : "once",
-    "tooltip": false
-  },
-
-  "custom/sl_end": {
-    "format": " ",
-    "interval" : "once",
-    "tooltip": false
-  },
-
-  "custom/sr_end": {
-    "format": " ",
-    "interval" : "once",
-    "tooltip": false
-  },
-
-  "custom/rl_end": {
-    "format": " ",
-    "interval" : "once",
-    "tooltip": false
-  },
-
-  "custom/rr_end": {
-    "format": " ",
-    "interval" : "once",
-    "tooltip": false
-  },
-
-  "custom/padd": {
-    "format": "  ",
-    "interval" : "once",
-    "tooltip": false
-  }
+  /* === Spacing Modules (Empty Elements for Rounded Corners) === */
+  "custom/l_end": { "format": " ", "interval": "once", "tooltip": false },
+  "custom/r_end": { "format": " ", "interval": "once", "tooltip": false },
+  "custom/sl_end": { "format": " ", "interval": "once", "tooltip": false },
+  "custom/sr_end": { "format": " ", "interval": "once", "tooltip": false },
+  "custom/rl_end": { "format": " ", "interval": "once", "tooltip": false },
+  "custom/rr_end": { "format": " ", "interval": "once", "tooltip": false },
+  "custom/padd":  { "format": "  ", "interval": "once", "tooltip": false }
 }

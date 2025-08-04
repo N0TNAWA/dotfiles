@@ -9,7 +9,7 @@ Rectangle {
   width: parent.width
   implicitHeight: columnLayout.implicitHeight + 20
   height: implicitHeight
-  color: Wal.color2
+  color: Wal.color1
   radius: 5
   clip: true
 

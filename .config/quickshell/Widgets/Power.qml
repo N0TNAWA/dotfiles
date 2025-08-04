@@ -10,7 +10,7 @@ Rectangle {
   implicitHeight: 64
 
   radius: 5
-  color: Wal.color9
+  color: Wal.color0
 
   ColumnLayout {
     anchors.verticalCenter: parent.verticalCenter
@@ -54,7 +54,7 @@ Rectangle {
 
       MouseArea {
         anchors.fill: parent
-        onClicked: SysInfo.hibernate()
+        onClicked: SysInfo.suspend()
       }
     }
 

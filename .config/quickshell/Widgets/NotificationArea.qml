@@ -8,12 +8,10 @@ import qs.Data
 import "../Components"
 
 Rectangle {
-  implicitHeight: listLayout.implicitHeight + 10
-  radius: 5
-  color: Wal.color9
+  implicitHeight: listLayout.implicitHeight + 50
+  color: Wal.color0
 
   property var notificationData: Notifications.notificationData
-
 
   Rectangle {
     id: notifications
@@ -21,7 +19,6 @@ Rectangle {
     clip: true
     anchors.fill: parent
     anchors.margins: 5
-    
     
     Column {
       id: listLayout
@@ -31,6 +28,21 @@ Rectangle {
 
       Component.onCompleted: {
         Notifications.fetchNotifications()
+      }
+
+      Text {
+        text: "Notifications"
+        color: Wal.color7
+        font.pixelSize: 16
+        font.family: Settings.settings.fontFam 
+      }
+
+      Rectangle {
+        width: parent.width
+        height: 2
+        radius: 5
+
+        color: Wal.color2
       }
       
       Repeater {

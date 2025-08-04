@@ -1,7 +1,7 @@
 #!/bin/bash
 
 JSON_FILE="$HOME/.cache/notifications.json"
-MAX_HISTORY=5
+MAX_HISTORY=6
 
 
 # Ensure JSON file exists

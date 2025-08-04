@@ -11,7 +11,7 @@ Rectangle {
   implicitWidth: 100
   implicitHeight: 64
   radius: 5
-  color: Wal.color9
+  color: Wal.color0
   
   ColumnLayout {
     height: parent.height
