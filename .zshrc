@@ -10,7 +10,6 @@ fi
 
 # Source and load zinit
 source "${ZINIT_HOME}/zinit.zsh"
-source /usr/share/nvm/init-nvm.sh
 
 # Plugins
 zinit light zsh-users/zsh-syntax-highlighting

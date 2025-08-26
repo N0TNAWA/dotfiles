@@ -71,7 +71,7 @@
     "format-bluetooth": "󰂱  {volume}%",
     "format-muted": "󰖁",
     "scroll-step": 1,
-    "on-click": "pavucontrol -t 3",
+    "on-click": "qs --path /home/nawa/dotfiles/.config/quickshell ipc call shell toggleSettings",
     "ignored-sinks": ["Easy Effects Sink"],
     "format-icons": {
       "headphone": "  ",
@@ -151,7 +151,7 @@
   },
   "custom/menu": {
     "format": "󰣇",
-    "on-click": "~/.config/hypr/scripts/quickshell.sh",
+    "on-click": "qs --path /home/nawa/dotfiles/.config/quickshell ipc call shell toggleBar",
     "tooltip": true,
     "tooltip-format": "Dashboard"
   },

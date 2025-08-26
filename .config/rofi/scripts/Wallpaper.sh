@@ -42,7 +42,7 @@ notify-send --icon=$WALLPAPER "Changed wallpaper" "Changed wallpaper to $WALLPAP
 swww img "$WALLPAPER" --transition-step 80 --transition-fps 80 --transition-type any --transition-duration 1
 sleep 1
 
-wal -i "$WALLPAPER" \
+wal --cols16 -i "$WALLPAPER" \
 && ~/.config/hypr/scripts/update_dunst_colors.sh \
 && pywal-spicetify text \
 && walcord -i "$WALLPAPER" -t ~/.config/vesktop/themes/midnight.template.css -o ~/.config/vesktop/themes/midnight.theme.css \
