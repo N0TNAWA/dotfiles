@@ -26,6 +26,13 @@ Rectangle {
       anchors.horizontalCenter: parent.horizontalCenter
       spacing: 5
 
+      Timer {
+          interval: 1000 
+          repeat: true
+          running: true
+          onTriggered: Notifications.fetchNotifications()
+      }
+
       Component.onCompleted: {
         Notifications.fetchNotifications()
       }

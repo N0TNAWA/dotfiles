@@ -44,8 +44,13 @@ PanelWindow {
 
       Volume {
         width: parent.width
+        height: 150
+      }
+
+      SysButtons {
+        width: parent.width
         height: 100
-      }      
+      }
 
       // Your row content goes here
     }
