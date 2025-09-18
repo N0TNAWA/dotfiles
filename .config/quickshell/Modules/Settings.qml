@@ -47,7 +47,7 @@ PanelWindow {
         height: 150
       }
 
-      SysButtons {
+      PrefButtons {
         width: parent.width
         height: 100
       }

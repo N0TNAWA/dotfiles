@@ -10,7 +10,7 @@
 
 window#waybar {
     background-color: transparent;
-    color: @background;
+    color: @color0;
 }
 
 tooltip {
