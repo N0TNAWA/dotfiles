@@ -9,7 +9,6 @@ Singleton {
 
   function fetchNotifications() {
     const rawPath = Settings.settings.notifData;
-    console.log("Raw path from settings:", rawPath);
     
     let filePath;
     if (rawPath.startsWith("file://")) {
@@ -19,8 +18,6 @@ Singleton {
     } else {
       filePath = Qt.resolvedUrl(rawPath);
     }
-    
-    console.log("Final file URL:", filePath);
     
     const xhr = new XMLHttpRequest();
     xhr.open("GET", filePath);

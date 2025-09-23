@@ -9,8 +9,9 @@
 }
 
 window#waybar {
-    background-color: transparent;
+    background-color: @color0;
     color: @color0;
+    border-radius: 10px;
 }
 
 tooltip {
@@ -65,14 +66,14 @@ tooltip {
 #custom-l_end,
 #custom-rl_end {
     border-radius: 10px 0 0 10px;
-    margin-left: 9px;
+    margin-left: 0px;
     padding-left: 3px;
 }
 
 #custom-r_end,
 #custom-rr_end {
     border-radius: 0 10px 10px 0;
-    margin-right: 9px;
+    margin-right: 0px;
     padding-right: 3px;
 }
 

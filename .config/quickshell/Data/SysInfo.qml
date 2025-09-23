@@ -34,17 +34,17 @@ Singleton {
     }
     
     function suspend() {
-        suspend.running = true
+        suspend.running = true;
     }
     function reboot() {
-        reboot.running = true
+        reboot.running = true;
     }
     function poweroff() {
-        poweroff.running = true
+        poweroff.running = true;
     }
 
     function logout() {
-        logout.running = true
+        logout.running = true;
     }
 
     Process {

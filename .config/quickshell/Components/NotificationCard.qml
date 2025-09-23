@@ -18,10 +18,6 @@ Rectangle {
   property string timestamp: ""
   property string icon: ""
 
-  Component.onCompleted: {
-    console.log("Card created with title:", title, "body:", body, "timestamp:", timestamp, "icon:", icon);
-  }
-
   RowLayout {
     id: rowLayout
     spacing: 10

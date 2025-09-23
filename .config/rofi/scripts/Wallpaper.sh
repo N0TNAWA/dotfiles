@@ -6,7 +6,6 @@ WALLPAPER_DIR="$HOME/Wallpapers"
 SDDM_WALLPAPER_DIR="/usr/share/sddm/themes/sugar-candy/Backgrounds"
 CACHE_DIR="$HOME/.cache/mineral"
 THUMBNAIL_DIR="$CACHE_DIR/wallpaper_thumbnails"
-STATE_FILE="$HOME/.config/theme/theme-state" 
 
 mkdir -p "$THUMBNAIL_DIR"
 
@@ -36,20 +35,7 @@ notify-send --icon="$WALLPAPER" "Changed wallpaper" "Changed to $WALLPAPER"
 swww img "$WALLPAPER" --transition-step 80 --transition-fps 80 --transition-type any --transition-duration 1
 sleep 1
 
-# --- Determine light/dark ---
-# shellcheck disable=SC1090
-. "$STATE_FILE"
-
-is_light=0
-case "${LIGHT_MODE:-0}" in 1|true|TRUE|True) is_light=1 ;; esac
-
-# build args once
-args=(--cols16 -i "$WALLPAPER")
-if [[ $is_light -eq 1 ]]; then
-  args=(-l "${args[@]}")   # add -l when light
-fi
-
-wal "${args[@]}"
+wal --cols16 -i "$WALLPAPER"
 
 # --- Post-wal hooks (chain correctly) ---
 ~/.config/hypr/scripts/update_dunst_colors.sh &&

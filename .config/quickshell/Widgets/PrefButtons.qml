@@ -34,9 +34,9 @@ Rectangle {
         anchors.margins: 5
 
         Text {
-          //text: "DND  " + (Buttons ? Buttons.currentDnd : "...")
+          text: Buttons.isDnd ? "" : ""
           font.family: Settings.settings.fontFam
-          font.pixelSize: 15
+          font.pixelSize: 20
           color: Wal.color7
           anchors.verticalCenter: parent.horizontalCenter
 
@@ -44,7 +44,7 @@ Rectangle {
             anchors.fill: parent
             hoverEnabled: true
             cursorShape: Qt.PointingHandCursor
-            //onClicked: Buttons.changeDnd()
+            onClicked: Buttons.changeDnd()
           }
         }
       }
