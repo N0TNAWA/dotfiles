@@ -2,6 +2,7 @@ import QtQuick
 import Quickshell
 import Quickshell.Hyprland
 import QtQuick.Layouts
+import QtQuick.Controls
 import "../Data/" as Dat
 import "../Widgets"
 
@@ -29,32 +30,64 @@ PanelWindow {
 
   color: "transparent"
 
-  Rectangle {
-    id: bar
+  StackView {
+    id: stackView
     anchors.fill: parent
-    color: Dat.Wal.color0
-    radius: 10
-    
-    Flow {
-      id: widgetFlow
-      spacing: 10
+    initialItem: bar
+  }
+
+  Component {
+    id: bar
+
+    Rectangle {
       anchors.fill: parent
-      anchors.margins: 10
-      flow: Flow.LeftToRight
+      color: Dat.Wal.color0
+      radius: 10
+      
+      Flow {
+        id: widgetFlow
+        spacing: 10
+        anchors.fill: parent
+        anchors.margins: 10
+        flow: Flow.LeftToRight
 
-      Volume {
-        width: parent.width
-        height: 150
+        Volume {
+          width: parent.width
+          height: 150
+        }
+
+        PrefButtons {
+          width: parent.width
+          height: 100
+          stack: stackView
+          btPage: btDevices
+        }
+
+        // Your row content goes here
       }
 
-      PrefButtons {
-        width: parent.width
-        height: 100
-      }
-
-      // Your row content goes here
     }
 
+  }
+
+  Component {
+    id: btDevices
+    Rectangle {
+      anchors.fill: parent
+      color: Dat.Wal.color0
+      radius: 10
+
+      Column {
+        anchors.centerIn: parent
+        spacing: 10
+
+        Text { text: "Wi-Fi Settings"; font.pixelSize: 24 }
+        Button {
+          text: "Back"
+          onClicked: stackView.pop()
+        }
+      }
+    }
   }
       
 }
