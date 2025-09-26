@@ -10,24 +10,24 @@
 
     # Placeholder colors to be updated by the script
     background = "#121111"
-    foreground = "#c3c3c3"
-    frame_color = "#C6AB6A"
+    foreground = "#988e8e"
+    frame_color = "#94804f"
 
 [urgency_low]
     background = "#121111"
-    foreground = "#c3c3c3"
-    frame_color = "#C6AB6A"
+    foreground = "#988e8e"
+    frame_color = "#94804f"
     icon_position = left
 
 [urgency_normal]
     background = "#121111"
-    foreground = "#c3c3c3"
-    frame_color = "#C6AB6A"
+    foreground = "#988e8e"
+    frame_color = "#94804f"
     icon_position = left
 
 [urgency_critical]
     background = "#121111"
-    foreground = "#c3c3c3"
-    frame_color = "#C6AB6A"
+    foreground = "#988e8e"
+    frame_color = "#94804f"
     icon_position = left
 
