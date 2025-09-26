@@ -10,7 +10,7 @@ Rectangle {
   id: settings
 
   property StackView stack
-  property Component btPage
+  property Component aiPage
 
   implicitWidth: 100
   implicitHeight: 64
@@ -66,7 +66,7 @@ Rectangle {
         anchors.margins: 5
 
         Text {
-          text: "󰂯" + "  Bluetooth"
+          text: "󰧑" + "  Ai Chat"
           font.family: Settings.settings.fontFam
           font.pixelSize: 16
           color: Wal.color7
@@ -76,7 +76,7 @@ Rectangle {
             anchors.fill: parent
             hoverEnabled: true
             cursorShape: Qt.PointingHandCursor
-            onClicked: settings.stack.push(settings.btPage)
+            onClicked: settings.stack.push(settings.aiPage)
           }
         }
       }

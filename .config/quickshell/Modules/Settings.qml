@@ -60,7 +60,7 @@ PanelWindow {
           width: parent.width
           height: 100
           stack: stackView
-          btPage: btDevices
+          aiPage: aiChat
         }
 
         // Your row content goes here
@@ -71,24 +71,20 @@ PanelWindow {
   }
 
   Component {
-    id: btDevices
+    id: aiChat
     Rectangle {
       anchors.fill: parent
       color: Dat.Wal.color0
       radius: 10
-
-      Column {
-        anchors.centerIn: parent
-        spacing: 10
-
-        Text { text: "Wi-Fi Settings"; font.pixelSize: 24 }
-        Button {
-          text: "Back"
-          onClicked: stackView.pop()
-        }
-      }
-    }
-  }
       
+      Chat {
+        width: parent.width
+        height: parent.height
+        stack: stackView
+        aiPage: aiChat
+      } 
+
+    }
+  }     
 }
 
