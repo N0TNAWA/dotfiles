@@ -3,22 +3,22 @@ import Quickshell
 import QtQuick 2.0
 
 QtObject {
-   readonly property color color0: "#151014"
-   readonly property color color1: "#71514d"
-   readonly property color color2: "#876359"
-   readonly property color color3: "#a56f57"
-   readonly property color color4: "#bd9159"
-   readonly property color color5: "#896f66"
-   readonly property color color6: "#a7806c"
-   readonly property color color7: "#998e99"
-   readonly property color color8: "#6e5a6e"
-   readonly property color color9: "#976D67"
-   readonly property color color10: "#B48477"
-   readonly property color color11: "#DD9575"
-   readonly property color color12: "#FDC277"
-   readonly property color color13: "#B79489"
-   readonly property color color14: "#DFAB90"
-   readonly property color color15: "#c4c3c4"
+   readonly property color color0: "#181b23"
+   readonly property color color1: "#635e60"
+   readonly property color color2: "#5c6268"
+   readonly property color color3: "#6c6b6b"
+   readonly property color color4: "#787375"
+   readonly property color color5: "#818284"
+   readonly property color color6: "#8a8d94"
+   readonly property color color7: "#94969e"
+   readonly property color color8: "#616676"
+   readonly property color color9: "#847E81"
+   readonly property color color10: "#7B838B"
+   readonly property color color11: "#908F8F"
+   readonly property color color12: "#A09A9C"
+   readonly property color color13: "#ADAEB1"
+   readonly property color color14: "#B8BDC6"
+   readonly property color color15: "#c5c6c8"
 
   function withAlpha(color: color, alpha: real): color {
     return Qt.rgba(color.r, color.g, color.b, alpha);

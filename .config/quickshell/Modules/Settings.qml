@@ -72,6 +72,7 @@ PanelWindow {
 
   Component {
     id: aiChat
+
     Rectangle {
       anchors.fill: parent
       color: Dat.Wal.color0
@@ -85,6 +86,6 @@ PanelWindow {
       } 
 
     }
-  }     
+  }
 }
 

@@ -26,42 +26,65 @@ Rectangle {
 
     ColumnLayout {
       anchors.fill: parent
+      spacing: 10
 
       Rectangle {
         id: backButton
-        width: 100
-        height: 50
+        Layout.fillWidth: true
+        Layout.preferredHeight: 20
         radius: 5
-        color: Wal.color1
-        anchors.margins: 10
+        color: Wal.color0
 
-        ColumnLayout {
-          anchors.verticalCenter: parent.verticalCenter
-          anchors.horizontalCenter: parent.horizontalCenter
-          spacing: 10
-          anchors.margins: 5
+        Text {
+          text: "Back"
+          font.family: Settings.settings.fontFam
+          font.pixelSize: 16
+          color: Wal.color7
+        }
 
-          Text {
-            text: "Back" 
-            font.family: Settings.settings.fontFam
-            font.pixelSize: 16
-            color: Wal.color7
-
-            MouseArea {
-              anchors.fill: parent
-              hoverEnabled: true
-              cursorShape: Qt.PointingHandCursor
-              onClicked: chat.stack.pop() 
-            }
-          }
+        MouseArea {
+          anchors.fill: parent 
+          hoverEnabled: true
+          cursorShape: Qt.PointingHandCursor
+          onClicked: chat.stack.pop()
+          focus: false
         }
       }
 
       Rectangle {
         id: chatContainer
+        Layout.fillWidth: true
+        Layout.fillHeight: true
+        radius: 5
+        color: Wal.color3
       }
 
+      Rectangle {
+        id: textArea
+        Layout.fillWidth: true
+        Layout.preferredHeight: 64
+        radius: 5
+        color: Wal.color3
+        z: 2
 
+        FocusScope {
+          anchors.fill: parent
+
+          TextArea {
+            id: inputField
+            anchors.fill: parent
+            anchors.margins: 8
+            font.family: Settings.settings.fontFam
+            font.pixelSize: 16
+            placeholderText: "Type your message..."
+            wrapMode: Text.Wrap
+            activeFocusOnPress: true  
+            focus: false 
+            Component.onCompleted: inputField.forceActiveFocus()
+          }
+        }
+      }
     }
-  } 
+  }
 }
+
