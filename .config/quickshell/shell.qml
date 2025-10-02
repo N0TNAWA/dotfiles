@@ -8,7 +8,7 @@ ShellRoot {
     id: root
 
     // both components exist; we just show/hide them
-    Bar { id: bar; visible: true }
+    Bar { id: bar; visible: false }
     Settings { id: settings; visible: false }
 
     // IPC: callable from outside via `qs ipc call shell <fn>`

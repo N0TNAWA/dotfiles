@@ -1,6 +1,7 @@
 import QtQuick
 import Quickshell
 import Quickshell.Hyprland
+import Quickshell.Wayland
 import QtQuick.Layouts
 import "../Data/" as Dat
 import "../Widgets"
@@ -28,6 +29,9 @@ PanelWindow {
   }
 
   color: "transparent"
+
+  exclusiveZone: 0
+  WlrLayershell.namespace: "quickshell:sidebarLight"
 
   Rectangle {
     id: bar

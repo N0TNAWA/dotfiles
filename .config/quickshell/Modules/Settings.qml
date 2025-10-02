@@ -1,6 +1,7 @@
 import QtQuick
 import Quickshell
 import Quickshell.Hyprland
+import Quickshell.Wayland
 import QtQuick.Layouts
 import QtQuick.Controls
 import "../Data/" as Dat
@@ -29,6 +30,8 @@ PanelWindow {
   }
 
   color: "transparent"
+  exclusiveZone: 0
+  WlrLayershell.namespace: "quickshell:sidebarLight"
 
   StackView {
     id: stackView

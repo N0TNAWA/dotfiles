@@ -1,5 +1,5 @@
 {
-  "output": "eDP-1",
+  "output": "DP-2",
   "layer": "top",
   "position": "top",
   "margin-top": 9,
@@ -23,8 +23,8 @@
     "custom/l_end",
     "pulseaudio",
     "battery",
-    //"memory",
-    //"cpu",
+    "memory",
+    "cpu",
     "custom/pacman",
     //"custom/bluetooth",
     "network",
@@ -56,7 +56,7 @@
     "format-icons": ["󰃞", "󰃟", "󰃠"]
   },
   "network": {
-    "interface": "wlp5s0",
+    "interface": "enp12s0",
     "format": "{ifname}",
     "format-wifi": "{icon}",
     "format-ethernet": "󰈀",
