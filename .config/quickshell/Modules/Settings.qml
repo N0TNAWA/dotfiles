@@ -9,7 +9,7 @@ import "../Widgets"
 
 PanelWindow {
   id: panel
-  
+
   property bool enableDock: true
 
   anchors {
@@ -32,6 +32,7 @@ PanelWindow {
   color: "transparent"
   exclusiveZone: 0
   WlrLayershell.namespace: "quickshell:sidebarLight"
+  focusable: true
 
   StackView {
     id: stackView

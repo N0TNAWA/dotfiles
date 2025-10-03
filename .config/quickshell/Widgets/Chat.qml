@@ -76,11 +76,11 @@ Rectangle {
             anchors.margins: 8
             font.family: Settings.settings.fontFam
             font.pixelSize: 16
+            color: Wal.color7
             placeholderText: "Type your message..."
             wrapMode: Text.Wrap
             activeFocusOnPress: true  
             focus: false 
-            Component.onCompleted: inputField.forceActiveFocus()
           }
         }
       }
