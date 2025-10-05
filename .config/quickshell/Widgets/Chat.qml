@@ -59,28 +59,31 @@ Rectangle {
         color: Wal.color3
       }
 
-      Rectangle {
-        id: textArea
+      ScrollView {
         Layout.fillWidth: true
-        Layout.preferredHeight: 64
-        radius: 5
-        color: Wal.color3
-        z: 2
+        clip: true
 
-        FocusScope {
-          anchors.fill: parent
-
-          TextArea {
-            id: inputField
+        TextArea {
+          id: inputField
+          wrapMode: Text.Wrap
+          placeholderText: "Type your message...\n\n"
+          activeFocusOnPress: true
+          focus: false
+          font.family: Settings.settings.fontFam
+          font.pixelSize: 16
+          color: Wal.color7
+          background: Rectangle {
+            radius: 5
+            color: Wal.color3
+            border.width: 0
             anchors.fill: parent
-            anchors.margins: 8
-            font.family: Settings.settings.fontFam
-            font.pixelSize: 16
-            color: Wal.color7
-            placeholderText: "Type your message..."
-            wrapMode: Text.Wrap
-            activeFocusOnPress: true  
-            focus: false 
+            anchors.margins: 2
+          }
+
+          Keys.onPressed: (event) => {
+            if (event.key === Qt.Key_Return && !event.modifiers) {
+              inputField.text = ""
+            }
           }
         }
       }

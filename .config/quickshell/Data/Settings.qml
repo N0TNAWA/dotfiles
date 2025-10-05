@@ -32,6 +32,7 @@ Singleton {
             property string user: "NaWa"
             property string fontFam: "CaskaydiaMono Nerd Font"
             property string notifData: Qt.resolvedUrl("file:///home/nawa/.cache/notifications.json")
+            property string chatData: Qt.resolvedUrl("file:///home/nawa/.cache/chat.json")
             property string currentWallpaper: Quickshell.env("HOME") + "/.cache/mineral/wallpaper.png"
             property string srcDir: Quickshell.env("Home") + "/.config/hypr/scripts/"
         }
