@@ -3,7 +3,7 @@
 # Update the system
 sudo pacman -Syu
 
-essential_packages=(hyprland qt5-wayland qt6-wayland xdg-desktop-portal-hyprland qt5-graphicaleffects qt5-quickcontrols2 qt5ct qt6ct qt5-svg polkit-kde-agent kvantum kvantum-qt5 sddm cliphist playerctl xdotool kitty dolphin dunst grim slurp hyprlock wl-clipboard fastfetch blueman udiskie pavucontrol zsh flatpak gtk4 gtk-engine-murrine unzip scrcpy imagemagick stow openssh tree neovim polkit-kde-agent)
+essential_packages=(hyprland qt5-wayland qt6-wayland xdg-desktop-portal-hyprland qt5-graphicaleffects qt5-quickcontrols2 qt5ct qt6ct qt5-svg polkit-kde-agent kvantum kvantum-qt5 sddm cliphist playerctl xdotool kitty thunar dunst grim slurp hyprlock wl-clipboard fastfetch blueman udiskie pavucontrol zsh flatpak gtk4 gtk-engine-murrine unzip scrcpy imagemagick stow openssh tree neovim polkit-kde-agent)
 
 aur_packages=(waybar-cava rofi-emoji wlogout swaylock-effects zen-browser pywal swappy swww eww oh-my-posh pacman-contrib obs-studio spotify-launcher spicetify-cli network-manager-applet nwg-look otf-font-awesome-6.6.0-1 ttf-jetbrains-mono-nerd ttf-cascadia-mono-nerd adobe-source-han-sans-jp-fonts quickshell-git)
 
