@@ -8,7 +8,7 @@
 
   "modules-left": [
     "custom/rl_end",
-    "custom/menu",
+    //"custom/menu",
     "hyprland/workspaces",
     "custom/r_end"
   ],
@@ -73,7 +73,7 @@
     "format-bluetooth": "󰂱  {volume}%",
     "format-muted": "󰖁",
     "scroll-step": 1,
-    "on-click": "qs --path $HOME/dotfiles/.config/quickshell ipc call shell toggleSettings",
+    //"on-click": "qs --path $HOME/dotfiles/.config/quickshell ipc call shell toggleSettings",
     "ignored-sinks": ["Easy Effects Sink"],
     "format-icons": {
       "headphone": "  ",
@@ -96,7 +96,7 @@
 
   /* === Cava Visualizer === */
   "cava": {
-    "framerate": 144,
+    "framerate": 30,
     "autosens": 1,
     "sensitivity": 2,
     "bars": 14,
@@ -110,7 +110,7 @@
     "monstercat": false,
     "waves": false,
     "noise_reduction": 0.77,
-    "input_delay": 2,
+    "input_delay": 0,
     "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
     "actions": {
       "on-click-right": "mode"
@@ -153,7 +153,7 @@
   },
   "custom/menu": {
     "format": "󰣇",
-    "on-click": "qs --path $HOME/dotfiles/.config/quickshell ipc call shell toggleBar",
+    //"on-click": "qs --path $HOME/dotfiles/.config/quickshell ipc call shell toggleBar",
     "tooltip": true,
     "tooltip-format": "Dashboard"
   },

@@ -35,7 +35,7 @@ notify-send --icon="$WALLPAPER" "Changed wallpaper" "Changed to $WALLPAPER"
 swww img "$WALLPAPER" --transition-step 80 --transition-fps 80 --transition-type any --transition-duration 1
 sleep 1
 
-wal --cols16 -i "$WALLPAPER"
+wal -i "$WALLPAPER"
 
 # --- Post-wal hooks (chain correctly) ---
 ~/.config/hypr/scripts/update_dunst_colors.sh &&
@@ -43,14 +43,28 @@ pywal-spicetify text &&
 walcord -i "$WALLPAPER" \
   -t ~/.config/vesktop/themes/midnight.template.css \
   -o ~/.config/vesktop/themes/midnight.theme.css &&
-~/.config/hypr/scripts/qml_colors.sh
+~/dotfiles/.config/quickshell/scripts/qml_colors.sh
 
 (sleep 0.1 && pkill rofi) &
 
 # --- Cache + SDDM ---
-cp "$WALLPAPER" "$CACHE_DIR/wallpaper.png"
-cp "$CACHE_DIR/wallpaper.png" "$SDDM_WALLPAPER_DIR"
+CACHE_WALLPAPER="$CACHE_DIR/wallpaper.png"
+
+# Detect file extension (lowercased)
+ext="${WALLPAPER##*.}"
+ext="${ext,,}"  # lowercase for safety (handles .JPG vs .jpg)
+
+if [[ "$ext" == "png" ]]; then
+  # Already PNG, just copy it
+  cp "$WALLPAPER" "$CACHE_WALLPAPER"
+else
+  # Convert to PNG
+  magick "$WALLPAPER" "$CACHE_WALLPAPER"
+fi
+
+# Copy to SDDM theme directory
+cp "$CACHE_WALLPAPER" "$SDDM_WALLPAPER_DIR"
 
 # --- Reload Waybar ---
-killall waybar || true
-exec waybar
+killall qs || true
+exec env QML_XHR_ALLOW_FILE_READ=1 qs --path $HOME/dotfiles/.config/quickshell -n > /tmp/quickshell.log 2>&1 
