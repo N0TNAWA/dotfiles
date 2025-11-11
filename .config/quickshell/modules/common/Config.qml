@@ -101,7 +101,9 @@ Singleton {
 
 
       property JsonObject music: JsonObject {
-        property string service: "Spotify"
+        property JsonObject services: JsonObject {
+          property string spotify: "qs::service::mpris::MprisPlayer(0x7f5f63d03800)"
+        }
       }
     }
   }

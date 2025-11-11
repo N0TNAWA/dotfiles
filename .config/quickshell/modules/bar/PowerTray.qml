@@ -81,10 +81,10 @@ Item {
     }
 
     Component.onCompleted: {
-      createItem("⏼", Colors.colors.color6, Power.powerOff)
-      createItem("", Colors.colors.color6, Power.reboot)
-      createItem("", Colors.colors.color6, Power.lock)
-      createItem("", Colors.colors.color6, Power.exitHyprland)
+      createItem("⏼", Colors.colors.color5, Power.powerOff)
+      createItem("", Colors.colors.color5, Power.reboot)
+      createItem("", Colors.colors.color5, Power.lock)
+      createItem("", Colors.colors.color5, Power.exitHyprland)
     }
   }
 }

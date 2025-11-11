@@ -9,6 +9,7 @@ Item {
   height: Config.options.bar.barHeight
   implicitWidth: rowLayout.implicitWidth + padding * 2
   default property alias items: rowLayout.children
+  clip: true
 
   Rectangle {
     id: background
@@ -36,7 +37,7 @@ Item {
       rightMargin: root.padding
     }
 
-    spacing: 15
+    spacing: 10
 
   }
 }

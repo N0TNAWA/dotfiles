@@ -27,7 +27,7 @@ Item {
           width: modelData.active ? 25 : 15
           height: 15
           radius: 100
-          color: modelData.active ? Colors.colors.color6 : Colors.colors.color4
+          color: modelData.active ? Colors.colors.color5 : Colors.colors.color4
 
           Behavior on width {
             NumberAnimation { duration: 150; easing.type: Easing.InOutQuad }

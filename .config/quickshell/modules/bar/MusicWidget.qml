@@ -11,28 +11,40 @@ Item {
   RowLayout {
     id: rowLayout
     anchors.centerIn: parent
-    spacing: 10 
+    spacing: 5
 
+    // No player
     Text {
+      visible: !Music.currentPlayer
       font.pixelSize: Appearance.font.pixelSize.small
       font.family: Appearance.font.family.main
-      color: Colors.colors.color6
-      text: "  " + Music.currentArtist
-    }
-    
-    Text {
-      font.pixelSize: Appearance.font.pixelSize.small
-      font.family: Appearance.font.family.main
-      color: Colors.colors.color6
-      text: "-"
+      color: Colors.colors.color5
+      text: "  No player active"
     }
 
+    // Spotify icon
     Text {
+      visible: Music.currentPlayer
       font.pixelSize: Appearance.font.pixelSize.small
       font.family: Appearance.font.family.main
-      color: Colors.colors.color6
-      text: Music.currentTrack
+      color: Colors.colors.color5
+      text: ""
     }
 
+    // Play/pause button
+    Text {
+      visible: Music.currentPlayer
+      font.pixelSize: Appearance.font.pixelSize.small
+      font.family: Appearance.font.family.main
+      color: Colors.colors.color5
+      text: Music.currentPlayer.isPlaying ? "" : ""
+
+      MouseArea {
+        anchors.fill: parent
+        cursorShape: Qt.PointingHandCursor
+        onClicked: Music.playPause()
+      }
+    }
   }
 }
+

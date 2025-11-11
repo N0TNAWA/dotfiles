@@ -16,7 +16,7 @@ Item {
     Text {
       font.pixelSize: Appearance.font.pixelSize.small
       font.family: Appearance.font.family.main
-      color: Colors.colors.color6
+      color: Colors.colors.color5
       text: DateTime.time
     }
 
@@ -24,7 +24,7 @@ Item {
       visible: Config.options.bar.calendarVisible
       font.pixelSize: Appearance.font.pixelSize.small
       font.family: Appearance.font.family.main
-      color: Colors.colors.color6
+      color: Colors.colors.color5
       text: " • "
     }
 
@@ -32,7 +32,7 @@ Item {
       visible: Config.options.bar.calendarVisible
       font.pixelSize: Appearance.font.pixelSize.small
       font.family: Appearance.font.family.main
-      color: Colors.colors.color6
+      color: Colors.colors.color5
       text: DateTime.date
     }
 

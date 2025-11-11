@@ -68,7 +68,7 @@ Scope {
             anchors {
               topMargin: 0
               bottomMargin: 0
-              leftMargin: 10
+              leftMargin: 7
               rightMargin: 0
             }
 
@@ -122,16 +122,6 @@ Scope {
                 Layout.fillWidth: true
               }
             }
-
-            BarGroup {
-              id: middleSectionLeftGroup
-              anchors.fill: parent.centerIn
-
-              WindowWidget {
-                Layout.alignment: Qt.AlignVCenter
-                Layout.fillWidth: true
-              }
-            }
           }
           
           // Right section //
@@ -143,7 +133,17 @@ Scope {
               topMargin: 0
               bottomMargin: 0
               leftMargin: 0
-              rightMargin: 10
+              rightMargin: 7
+            }
+
+            BarGroup {
+              id: rightSectionRightGroup
+              anchors.fill: parent.centerIn
+
+              WindowWidget {
+                Layout.alignment: Qt.AlignVCenter
+                Layout.fillWidth: true
+              }
             }
             
             BarGroup {
@@ -155,6 +155,10 @@ Scope {
                 Layout.fillWidth: true
               }
 
+              MusicTray {
+                Layout.alignment: Qt.AlignVCenter
+                Layout.fillWidth: true
+              }
             }
           }
         }

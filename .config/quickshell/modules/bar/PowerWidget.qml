@@ -24,8 +24,8 @@ Item {
         id: menuButton
         font.pixelSize: Appearance.font.pixelSize.small
         font.family: Appearance.font.family.main
-        color: Colors.colors.color6
-        text: "⏻" 
+        color: Colors.colors.color5
+        text: "󰣇" 
       }
 
       MouseArea {

@@ -17,32 +17,43 @@ return {
     "neovim/nvim-lspconfig",
     config = function()
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
-      local lspconfig = require("lspconfig")
 
-      lspconfig.lua_ls.setup({ capabilities = capabilities })
-      lspconfig.ts_ls.setup({ capabilities = capabilities})
-      lspconfig.pyright.setup({ capabilities = capabilities})
+      -- NEW API (Neovim 0.11+)
+      -- Define server configs.
+      vim.lsp.config.lua_ls = {
+        capabilities = capabilities,
+      }
 
-      --lspconfig.qmlls.setup({
-      --  cmd = { "qmlls" },
-      --  filetypes = { "qml", "qmljs" },
-      --  capabilities = capabilities,
-      --  single_file_support = true,
-      --})
+      vim.lsp.config.ts_ls = {
+        capabilities = capabilities,
+      }
 
-      lspconfig.omnisharp.setup({
+      vim.lsp.config.pyright = {
+        capabilities = capabilities,
+      }
+
+      -- Example: OmniSharp updated to new API
+      vim.lsp.config.omnisharp = {
         cmd = { vim.fn.expand("~/.local/share/nvim/mason/bin/OmniSharp") },
         enable_editorconfig_support = true,
         enable_roslyn_analyzers = true,
         organize_imports_on_format = true,
         enable_import_completion = true,
         capabilities = capabilities,
-      })
+      }
 
-      vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
-      vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {})
-      vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, {})
+      -- Start the language servers
+      vim.lsp.start(vim.lsp.config.lua_ls)
+      vim.lsp.start(vim.lsp.config.ts_ls)
+      vim.lsp.start(vim.lsp.config.pyright)
+      vim.lsp.start(vim.lsp.config.omnisharp)
+      vim.lsp.start(vim.lsp.config.qmlls)
 
-   end
+      -- KEYMAPS
+      vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
+      vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
+      vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
+      vim.keymap.set("n", "mv", vim.lsp.buf.rename, {})
+    end,
   }
 }

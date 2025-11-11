@@ -23,7 +23,7 @@ Singleton {
   property bool canGoNext: currentPlayer ? currentPlayer.canGoNext : false
   property bool canGoPrevious: currentPlayer ? currentPlayer.canGoPrevious : false
   property bool canSeek: currentPlayer ? currentPlayer.canSeek : false
-  property bool hasPlayer: getAvailablePlayers().length > 0
+  property bool hasPlayer: getAvailablePlayer().length > 0
 
   Item {
     Component.onCompleted: {
@@ -42,7 +42,7 @@ Singleton {
     
     for (let i = 0; i < allPlayers.length; i++) {
       let player = allPlayers[i]
-      if (player && player.canControl) {
+      if (player && player.canControl && player.identity.toLowerCase().includes("spotify")) {
         controllablePlayers.push(player)
       }
     }
@@ -56,9 +56,10 @@ Singleton {
     if (availablePlayers.length === 0) {
       return null
     }
-    
+
     // Use selected player if valid, otherwise use first available
     if (selectedPlayerIndex < availablePlayers.length) {
+      console.log(availablePlayers.length)
       return availablePlayers[selectedPlayerIndex]
     } else {
       selectedPlayerIndex = 0

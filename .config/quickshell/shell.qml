@@ -9,6 +9,7 @@ import Quickshell
 
 ShellRoot {
   property bool enableBar: true
+  property bool enableMenuBar: true
 
   LazyLoader { active: enableBar; component: Bar {} }
 }

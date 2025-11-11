@@ -21,7 +21,7 @@ Item {
         id: textItem
         font.pixelSize: Appearance.font.pixelSize.small
         font.family: Appearance.font.family.main
-        color: Colors.colors.color6
+        color: Colors.colors.color5
         text: Updates.formatted
       }
 

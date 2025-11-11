@@ -10,5 +10,5 @@ pragma ComponentBehavior: Bound
 Singleton {
   id: root
   property bool barOpen: true
-  property bool powerOpen: false
+  property bool menuBarOpen: false
 }
