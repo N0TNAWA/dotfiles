@@ -12,6 +12,7 @@ Singleton {
   property var currentPlayer: null
   property real currentPosition: 0
   property int selectedPlayerIndex: 0
+  property string service: Config.options.music.services.spotify
   property bool isPlaying: currentPlayer ? currentPlayer.isPlaying: false
   property string currentTrack: currentPlayer ? (currentPlayer.trackTitle || "Unknown Song"): ""
   property string currentArtist: currentPlayer ? (currentPlayer.trackArtist || "Unknown Artist"): ""
@@ -42,7 +43,7 @@ Singleton {
     
     for (let i = 0; i < allPlayers.length; i++) {
       let player = allPlayers[i]
-      if (player && player.canControl && player.identity.toLowerCase().includes("spotify")) {
+      if (player && player.canControl && player.identity.toLowerCase().includes(service)) {
         controllablePlayers.push(player)
       }
     }

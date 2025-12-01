@@ -1,4 +1,5 @@
 import "./modules/bar"
+import "./modules/menu"
 import "./modules/common"
 import "./ii"
 
@@ -9,7 +10,8 @@ import Quickshell
 
 ShellRoot {
   property bool enableBar: true
-  property bool enableMenuBar: true
+  property bool enableMenubar: true
 
   LazyLoader { active: enableBar; component: Bar {} }
+  LazyLoader { active: enableMenubar; component: MenuBar {} }
 }

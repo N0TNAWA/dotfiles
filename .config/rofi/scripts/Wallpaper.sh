@@ -39,7 +39,6 @@ wal -i "$WALLPAPER"
 
 # --- Post-wal hooks (chain correctly) ---
 ~/.config/hypr/scripts/update_dunst_colors.sh &&
-pywal-spicetify text &&
 walcord -i "$WALLPAPER" \
   -t ~/.config/vesktop/themes/midnight.template.css \
   -o ~/.config/vesktop/themes/midnight.theme.css &&

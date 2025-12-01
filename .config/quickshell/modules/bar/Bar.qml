@@ -24,7 +24,7 @@ Scope {
         exclusionMode: ExclusionMode.Ignore
         exclusiveZone: implicitHeight
         WlrLayershell.namespace: "quickshell:bar"
-        implicitHeight: Config.options.bar.barHeight
+        implicitHeight: Appearance.sizes.barHeight
         color: "transparent"
 
         margins {
@@ -50,7 +50,7 @@ Scope {
             bottom: undefined
           }
           
-          implicitHeight: Config.options.bar.barHeight
+          implicitHeight: Appearance.sizes.barHeight
           height: Config.options.bar.barHeight
 
           Rectangle {

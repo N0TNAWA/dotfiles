@@ -5,7 +5,7 @@ import QtQuick.Layouts
 Item {
   id: root
   property real padding: 10
-  implicitHeight: Config.options.bar.barHeight
+  implicitHeight: Appearance.sizes.barHeight
   height: Config.options.bar.barHeight
   implicitWidth: rowLayout.implicitWidth + padding * 2
   default property alias items: rowLayout.children

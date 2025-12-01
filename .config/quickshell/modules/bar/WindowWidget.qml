@@ -19,7 +19,7 @@ Item {
       font.pixelSize: Appearance.font.pixelSize.small
       font.family: Appearance.font.family.main
       color: Colors.colors.color5
-      text: ""
+      text: " "
     }
 
     Text {

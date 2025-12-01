@@ -74,16 +74,16 @@ Singleton {
     JsonAdapter {
       id: configOptionsJsonAdapter
 
+      property JsonObject user: JsonObject {
+        property string icon: Quickshell.env("HOME") + "/.face"
+        property string name: "Nawa"  
+      }
+
       property JsonObject bar: JsonObject {
-        property int barHeight: 45
         property int maxCharLength: 20
         property bool calendarVisible: false  // false| Only clock true| Clock and calendar
         property bool allUpdatesVisible: true // false| pacman  true| pacman, aur and flatpak
-        property bool barGroupBackground: true
-
-        property JsonObject workspaces: JsonObject {
-
-        }
+        property bool barGroupBackground: false
 
         property JsonObject power: JsonObject {
           property bool togglePowerOptions: false
@@ -102,7 +102,7 @@ Singleton {
 
       property JsonObject music: JsonObject {
         property JsonObject services: JsonObject {
-          property string spotify: "qs::service::mpris::MprisPlayer(0x7f5f63d03800)"
+          property string spotify: "spotify"
         }
       }
     }
