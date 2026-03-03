@@ -76,7 +76,16 @@ Singleton {
 
       property JsonObject user: JsonObject {
         property string icon: Quickshell.env("HOME") + "/.face"
-        property string name: "Nawa"  
+        property string name: "Nawa" 
+        property string host: "Gecko"
+      }
+
+      property JsonObject ai: JsonObject {
+        property string name: "Gecko"
+
+        property string logsPath: "file:///home/nawa/.config/quickshell/tmp/logs"
+        property string activeConversation: "test.json"
+        property var conversations: []
       }
 
       property JsonObject bar: JsonObject {
@@ -88,6 +97,10 @@ Singleton {
         property JsonObject power: JsonObject {
           property bool togglePowerOptions: false
         }
+      }
+
+      property JsonObject animation: JsonObject {
+        property int animationDur: 500
       }
 
       property JsonObject time: JsonObject {

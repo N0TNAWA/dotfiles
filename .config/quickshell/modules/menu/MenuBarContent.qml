@@ -7,62 +7,106 @@ import QtQuick.Layouts
 Item {
   id: root
   anchors.fill: parent
+  property StackView stackView
+
 
   GridLayout {
     columns: 4
-    rowSpacing: 8
-    columnSpacing: 8
+    rows: 5
+    rowSpacing: 15
+    columnSpacing: 15
   
     anchors {
       fill: parent
-      margins: 8
+
+      leftMargin: 15
+      rightMargin: 15
+      bottomMargin: 15
+    }
+
+    Repeater {
+      model: 4
+      Item {
+        Layout.column: index
+        Layout.fillWidth: true
+      }
     }
     
-        // A (tall, spans 2 rows)
     Rectangle {
       id: a
-      color: "transparent"
+      color: Colors.colors.color1
       Layout.rowSpan: 2
-      Layout.fillWidth: true
-      Layout.fillHeight: true
-
-      Profile {}
-    }
-
-    // B (wide, spans 2 columns)
-    Rectangle {
-      id: b
-      color: "transparent"
       Layout.columnSpan: 2
       Layout.fillWidth: true
       Layout.fillHeight: true
+      radius: 10
     }
 
-    // E (tall, spans 2 rows)
+    Rectangle {
+      id: b
+      color: Colors.colors.color1
+      Layout.rowSpan: 1
+      Layout.columnSpan: 2
+      Layout.fillWidth: true
+      Layout.fillHeight: true
+      radius: 10
+
+      Profile { anchors.fill: parent }
+    }
+
     Rectangle {
       id: e
-      color: "transparent"
-      Layout.rowSpan: 2
+      color: Colors.colors.color1
+      Layout.rowSpan: 1
+      Layout.columnSpan: 1
       Layout.fillWidth: true
       Layout.fillHeight: true
+      radius: 10
+
+      DoNotDisturb{ anchors.fill: parent }
     }
 
-    // Row 2 starts here automatically
-
-    // C
     Rectangle {
       id: c
-      color: "transparent"
+      color: Colors.colors.color1
+      Layout.rowSpan: 1
+      Layout.columnSpan: 1
       Layout.fillWidth: true
       Layout.fillHeight: true
+      radius: 10
+
+      AiChatButton{ anchors.fill: parent; stackView: root.stackView }
     }
 
-    // D
     Rectangle {
       id: d
-      color: "transparent"
+      color: Colors.colors.color1
+      Layout.rowSpan: 1
+      Layout.columnSpan: 4
       Layout.fillWidth: true
       Layout.fillHeight: true
+      radius: 10
+    }
+
+    Rectangle {
+      id: f
+      color: Colors.colors.color1
+      Layout.rowSpan: 1
+      Layout.columnSpan: 4
+      Layout.fillWidth: true
+      Layout.fillHeight: true
+      radius: 10
+    }
+        
+        
+    Rectangle {
+      id: g
+      color: Colors.colors.color1
+      Layout.rowSpan: 1
+      Layout.columnSpan: 4
+      Layout.fillWidth: true
+      Layout.preferredHeight: 150
+      radius: 10
     }
   }
 }

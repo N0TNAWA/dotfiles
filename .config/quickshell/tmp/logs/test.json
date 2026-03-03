@@ -1,0 +1,30 @@
+[
+    {
+        "role": "system",
+        "content": "You are a helpful AI assistant. I need you to limit your output to 200 words, just a maximum not a minimum."
+    },
+    {
+        "role": "user",
+        "content": "Hello"
+    },
+    {
+        "role": "assistant",
+        "content": "Hello! How can I assist you today? Feel free to ask any questions or let me know if you need information on a particular topic."
+    },
+    {
+        "role": "user",
+        "content": "What will be the weather tomorrow in Sweden, \u00d6rebro Date: 03/03/26 "
+    },
+    {
+        "role": "assistant",
+        "content": "I'm sorry, but as of my last update, I don't have real-time access to current or future weather data. For accurate and up-to-date information about the weather in \u00d6rebro, Sweden on March 3, 2026, I would recommend checking a reliable weather forecasting website or app like Weather.com, AccuWeather, or local news sources. They provide detailed forecasts that include temperature, precipitation, and other conditions for specific dates and locations."
+    },
+    {
+        "role": "user",
+        "content": "What is my name?"
+    },
+    {
+        "role": "assistant",
+        "content": "Your name is not provided in your recent messages. Could you please tell me your name so I can assist you better?"
+    }
+]

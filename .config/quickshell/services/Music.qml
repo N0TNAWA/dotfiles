@@ -32,7 +32,6 @@ Singleton {
     }
   }
 
-    // Returns available MPRIS players
   function getAvailablePlayer() {
     if (!Mpris.players || !Mpris.players.values) {
       return []
@@ -51,14 +50,12 @@ Singleton {
     return controllablePlayers
   }
 
-  // Returns active player or first available
   function findPlayer() {
     let availablePlayers = getAvailablePlayer()
     if (availablePlayers.length === 0) {
       return null
     }
 
-    // Use selected player if valid, otherwise use first available
     if (selectedPlayerIndex < availablePlayers.length) {
       console.log(availablePlayers.length)
       return availablePlayers[selectedPlayerIndex]
@@ -68,7 +65,6 @@ Singleton {
     }
   }
 
-  // Updates currentPlayer and currentPosition
   function updateCurrentPlayer() {
     let newPlayer = findPlayer()
     if (newPlayer !== currentPlayer) {
@@ -77,7 +73,6 @@ Singleton {
     }
   }
 
-  // Player control functions
   function playPause() {
     if (currentPlayer) {
       if (currentPlayer.isPlaying) {
@@ -127,7 +122,6 @@ Singleton {
     }
   }
 
-  // Updates progress bar every second
   Timer {
     id: positionTimer
     interval: 1000
@@ -140,7 +134,6 @@ Singleton {
     }
   }
 
-  // Reacts to player list changes
   Connections {
     target: Mpris.players
     function onValuesChanged() {

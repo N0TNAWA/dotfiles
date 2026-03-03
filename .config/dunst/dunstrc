@@ -9,25 +9,25 @@
     frame_width = 0
 
     # Placeholder colors to be updated by the script
-    background = "#0C1617"
-    foreground = "#c8c192"
-    frame_color = "#5B6D51"
+    background = "#0d0e12"
+    foreground = "#d6bfae"
+    frame_color = "#4E4F53"
 
 [urgency_low]
-    background = "#0C1617"
-    foreground = "#c8c192"
-    frame_color = "#5B6D51"
+    background = "#0d0e12"
+    foreground = "#d6bfae"
+    frame_color = "#4E4F53"
     icon_position = left
 
 [urgency_normal]
-    background = "#0C1617"
-    foreground = "#c8c192"
-    frame_color = "#5B6D51"
+    background = "#0d0e12"
+    foreground = "#d6bfae"
+    frame_color = "#4E4F53"
     icon_position = left
 
 [urgency_critical]
-    background = "#0C1617"
-    foreground = "#c8c192"
-    frame_color = "#5B6D51"
+    background = "#0d0e12"
+    foreground = "#d6bfae"
+    frame_color = "#4E4F53"
     icon_position = left
 

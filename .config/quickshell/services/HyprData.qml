@@ -11,7 +11,7 @@ Singleton {
   property string focusedWindow: "No window focused"
   property var windowList: []
 
-  // Initial trigger
+
   Item {
     Component.onCompleted: {
       fetchWorkspaces()
@@ -19,7 +19,6 @@ Singleton {
     }
   }
 
-  // Periodic updates
   Timer {
     id: updater
     interval: 100
@@ -32,7 +31,6 @@ Singleton {
     }
   }
 
-  // --- WORKSPACES ---
   Process {
     id: fetchWorkspaceProc
     running: false

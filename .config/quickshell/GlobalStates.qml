@@ -11,4 +11,6 @@ Singleton {
   id: root
   property bool barOpen: true
   property bool menubarOpen: false
+  property bool aiChatOpen: false
+  property bool logsMenuOpen: false
 }
