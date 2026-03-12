@@ -12,6 +12,7 @@ Singleton {
 
     property var chatMessages: []
     property string latestMessage
+    property string chatName
 
     Process {
         id: postProcess
@@ -37,9 +38,38 @@ Singleton {
     
     }
 
+    Process {
+        id: addChatProcess
+        running: false
+        command:["python3", "/home/nawa/.config/quickshell/backends/ai_backend/model/addChat.py", chatName]
+
+        stdout: StdioCollector {
+            onTextChanged: {
+                console.log("PYTHON STDOUT:", text)
+            }
+
+        onStreamFinished: {
+                console.log("Created new chat")
+                getConversations()
+            }
+        }
+
+        stderr: StdioCollector {
+            onTextChanged: {
+                console.log("PYTHON STDERR:", text)
+            }
+        }
+    
+    }
+
     function postFunction(message) {
         latestMessage = message
         postProcess.running = true
+    }
+
+    function addChat(name) {
+        chatName = name
+        addChatProcess.running = true
     }
 
     FolderListModel {

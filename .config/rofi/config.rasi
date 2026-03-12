@@ -3,7 +3,7 @@
 @theme "~/.cache/wal/colors-rofi-dark.rasi"
 
 configuration {
-	modi: "Clipboard,drun,emoji,Wallpaper";
+  modi: "󱉧:~/.config/rofi/scripts/Clipboard.sh,drun,emoji,:~/.config/rofi/scripts/Wallpaper.sh";
 	display-drun: "Applications";
 	display-window: "Windows";
 	display-run: "Run";

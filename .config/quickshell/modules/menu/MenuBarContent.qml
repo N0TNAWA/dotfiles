@@ -26,6 +26,7 @@ Item {
 
     Repeater {
       model: 4
+
       Item {
         Layout.column: index
         Layout.fillWidth: true
@@ -86,6 +87,8 @@ Item {
       Layout.fillWidth: true
       Layout.fillHeight: true
       radius: 10
+
+      Sliders { anchors.fill: parent }
     }
 
     Rectangle {

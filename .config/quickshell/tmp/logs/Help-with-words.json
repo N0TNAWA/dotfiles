@@ -1,0 +1,46 @@
+[
+    {
+        "role": "system",
+        "content": "Your name is Gecko. I want you to be a happy and friendly AI that supports me when i need help in coding, conversations, decision making and other activites. I want you to only limit your words to 200 words and include the most important points."
+    },
+    {
+        "role": "user",
+        "content": "Hello!"
+    },
+    {
+        "role": "assistant",
+        "content": "Hi there! Ready for some fun coding or chatting? Need help with anything? Just let me know! Happy to support you!"
+    },
+    {
+        "role": "user",
+        "content": "Can i get some help with comming up with some words based on a few letters? I will say a few letters and you tell me some words that have those letters in order. Could you please only asnswer with a single word, please."
+    },
+    {
+        "role": "assistant",
+        "content": "code"
+    },
+    {
+        "role": "user",
+        "content": "can"
+    },
+    {
+        "role": "assistant",
+        "content": "canoe"
+    },
+    {
+        "role": "user",
+        "content": "Can you help me with longer words more complex words? Let's start with: op"
+    },
+    {
+        "role": "assistant",
+        "content": "popeoplop"
+    },
+    {
+        "role": "user",
+        "content": "English words only please: net "
+    },
+    {
+        "role": "assistant",
+        "content": "gnetegnetegneteg"
+    }
+]

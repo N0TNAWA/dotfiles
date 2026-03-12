@@ -79,38 +79,19 @@ Item {
 				}
 			}
 
-			Rectangle {
-				id: settings
-				color: "transparent"
-				implicitHeight: 25
-
-				Layout.fillWidth: true
-				Layout.preferredWidth: 1
-
-				Text {
-					anchors.centerIn: parent
-					font.pixelSize: Appearance.font.pixelSize.supermassive
-					font.family: Appearance.font.family.main
-					color: Colors.colors.color5
-					text: ""
-				}
-
-				MouseArea {
-					anchors.fill: parent
-					cursorShape: Qt.PointingHandCursor
-					//onClicked: "stackView.push('AiSettings.qml')"
-				}
-			}
 		}
 
 		//Regular chat area
 		Rectangle {
 			id: chatContainer
-			implicitHeight: 850
+			Layout.fillHeight: true
 			Layout.fillWidth: true
 
 			color: Colors.colors.color1
 			radius: 10
+
+			Layout.topMargin: 15
+			Layout.bottomMargin: 15
 
 			visible: GlobalStates.logsMenuOpen ? true : false
 
@@ -182,11 +163,13 @@ Item {
 		// Drop down area
 		Rectangle {
 			id: logsContainer
-			implicitHeight: 850
+			Layout.fillHeight: true
 			Layout.fillWidth: true
 
 			color: Colors.colors.color1
 			radius: 10
+
+			Layout.topMargin: 15
 
 			visible: GlobalStates.logsMenuOpen ? false : true
 
@@ -204,6 +187,77 @@ Item {
 					id: logsColumn
 					width: parent.width
 					spacing: 10
+
+					// Add chat button
+					Rectangle {
+						id: addChat
+						color: Colors.colors.color4
+						radius: 6
+
+						Layout.fillWidth: true
+						implicitHeight: 50
+
+						Rectangle {
+							id: addChatContainer
+
+							anchors.fill: parent
+							anchors.margins: 10
+
+							color: "transparent"
+
+							Text {
+								anchors.verticalCenter: parent.verticalCenter
+
+								font.pixelSize: Appearance.font.pixelSize.small
+								font.family: Appearance.font.family.main
+								color: Colors.colors.color7
+								text: "+ New chat"
+							}
+
+							TextArea {
+								id: addChatField
+								visible: false
+								anchors.fill: parent
+								font.family: Appearance.font.family.main
+								color: Colors.colors.color7
+								placeholderText: "Chat name..."
+								wrapMode: Text.Wrap
+								activeFocusOnPress: true
+								focus: false
+
+								background: Rectangle {
+									radius: 5
+									implicitWidth: parent.width
+									implicitHeight: parent.height
+									color: Colors.colors.color1
+									border.color: "transparent"
+								}
+
+								Keys.onPressed: (event) => {
+									if (event.key === Qt.Key_Return && !event.modifiers) {
+										console.log("Submitted:", text)
+										AiService.addChat(text)
+
+										text = ""
+										event.accepted = true
+										addChatContainer.createChat()
+									}
+								}
+							}
+
+							function createChat() {
+								addChatField.visible = !addChatField.visible
+								addChatButton.enabled = !addChatButton.enabled
+							}
+						}
+
+						MouseArea {
+							id: addChatButton
+							anchors.fill: parent
+							cursorShape: Qt.PointingHandCursor
+							onClicked: addChatContainer.createChat()
+						}
+					}
 
 					Repeater {
 						model: Config.options.ai.conversations
@@ -239,7 +293,7 @@ Item {
 								cursorShape: Qt.PointingHandCursor
 								onClicked: { 
 									AiService.openChat(index)
-								 	GlobalShortcut.logsMenuOpen = !GlobalShortcut.logsMenuOpen
+									GlobalStates.logsMenuOpen = !GlobalStates.logsMenuOpen
 								}
           					}
 						}
@@ -251,9 +305,19 @@ Item {
 		Rectangle {
 			id: textArea
 			Layout.fillWidth: true
-			implicitHeight: 50
-			radius: 5
+			Layout.preferredHeight: inputField.focus ? 200 : 50
+			radius: 10
 			color: Colors.colors.color3
+			visible: GlobalStates.logsMenuOpen ? true : false
+
+			Behavior on Layout.preferredHeight {
+				NumberAnimation {
+					id: scaleInput
+					duration: Config.options.animation.animationDur
+					easing.type: Easing.OutCubic
+					alwaysRunToEnd: true
+				}
+			}
 
 			FocusScope {
 				anchors.fill: parent
@@ -271,6 +335,7 @@ Item {
 						wrapMode: Text.Wrap
 						activeFocusOnPress: true
 						focus: false
+						onPressed: focus = true
 
 						background: Rectangle {
 							radius: 10
@@ -287,6 +352,7 @@ Item {
 
 								text = ""
 								event.accepted = true
+								inputField.focus = false
 							}
 						}
 					}

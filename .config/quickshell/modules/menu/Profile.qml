@@ -53,14 +53,14 @@ Item {
       Text {
         font.pixelSize: Appearance.font.pixelSize.large
         font.family: Appearance.font.family.main
-        color: Colors.colors.color5
+        color: Colors.colors.color7
         text: Config.options.user.name + "@" + Config.options.user.host
       }
 
       Text {
         font.pixelSize: Appearance.font.pixelSize.smaller
         font.family: Appearance.font.family.main
-        color: Colors.colors.color5
+        color: Colors.colors.color7
         text: "I do my best."
       }
     }
