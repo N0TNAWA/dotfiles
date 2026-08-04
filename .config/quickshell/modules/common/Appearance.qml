@@ -7,6 +7,7 @@ Singleton {
   id: root
   property QtObject font
   property QtObject sizes
+  property QtObject paddings
 
   font: QtObject {
     property QtObject family: QtObject {
@@ -37,6 +38,13 @@ Singleton {
       property int menubarWidth: 450
       property int menubarHeight: 1000 
     }
+  }
+
+  paddings: QtObject {
+    property int smallPad: 5
+    property int mediumPad: 10
+    property int bigPad: 20
+    property int overflowPadding: 20
   }
 }
 

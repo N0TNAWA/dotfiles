@@ -32,13 +32,13 @@ WALLPAPER="$WALLPAPER_DIR/$SELECTED"
 [[ -f "$WALLPAPER" ]] || { notify-send "Wallpaper not found"; exit 1; }
 
 notify-send --icon="$WALLPAPER" "Changed wallpaper" "Changed to $WALLPAPER"
-swww img "$WALLPAPER" --transition-step 80 --transition-fps 80 --transition-type any --transition-duration 1
+awww img "$WALLPAPER" --transition-step 80 --transition-fps 80 --transition-type any --transition-duration 1
 sleep 1
 
 wal -i "$WALLPAPER"
 
 # --- Post-wal hooks (chain correctly) ---
-~/.config/hypr/scripts/update_dunst_colors.sh &&
+~/.local/bin/scripts/update_dunst_colors.sh &&
 walcord -i "$WALLPAPER" \
   -t ~/.config/vesktop/themes/midnight.template.css \
   -o ~/.config/vesktop/themes/midnight.theme.css &&

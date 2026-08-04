@@ -41,6 +41,8 @@ Item {
       Layout.fillWidth: true
       Layout.fillHeight: true
       radius: 10
+
+      Clock { anchors.fill: parent }
     }
 
     Rectangle {
@@ -88,7 +90,7 @@ Item {
       Layout.fillHeight: true
       radius: 10
 
-      Sliders { anchors.fill: parent }
+      Sliders { anchors.fill: parent; stackView: root.stackView }
     }
 
     Rectangle {

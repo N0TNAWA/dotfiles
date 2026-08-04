@@ -22,76 +22,57 @@ Item {
       property string fullText: Music.currentArtist + " - " + Music.currentTrack
       property int maxWidth: 180
       
-      // Dynamic width: fit text, but cap at maxWidth
       implicitWidth: Math.min(scrollContent.width, maxWidth)
 
       clip: true
       
       Row {
         id: scrollContent
-        spacing: 5
+        spacing: 50
         anchors.verticalCenter: parent.verticalCenter
-        
-        Text {
-          id: artistText
-          font.pixelSize: Appearance.font.pixelSize.small
-          font.family: Appearance.font.family.main
-          color: Colors.colors.color5
-          text: Music.currentArtist
+
+        Row {
+          id: content1
+          spacing: 5
+
+          Text { text: Music.currentArtist; font.pixelSize: Appearance.font.pixelSize.small; font.family: Appearance.font.family.main; color: Colors.colors.color5; }
+          Text { text: "-"; font.pixelSize: Appearance.font.pixelSize.small; font.family: Appearance.font.family.main; color: Colors.colors.color5; }
+          Text { text: Music.currentTrack; font.pixelSize: Appearance.font.pixelSize.small; font.family: Appearance.font.family.main; color: Colors.colors.color5; }
         }
-        
-        Text {
-          id: dash
-          font.pixelSize: Appearance.font.pixelSize.small
-          font.family: Appearance.font.family.main
-          color: Colors.colors.color5
-          text: "-"
-        }
-        
-        Text {
-          id: trackText
-          font.pixelSize: Appearance.font.pixelSize.small
-          font.family: Appearance.font.family.main
-          color: Colors.colors.color5
-          text: Music.currentTrack
+
+        Row {
+          id: content2
+          spacing: 5
+
+          Text { text: Music.currentArtist; font.pixelSize: Appearance.font.pixelSize.small; font.family: Appearance.font.family.main; color: Colors.colors.color5; }
+          Text { text: "-"; font.pixelSize: Appearance.font.pixelSize.small; font.family: Appearance.font.family.main; color: Colors.colors.color5; }
+          Text { text: Music.currentTrack; font.pixelSize: Appearance.font.pixelSize.small; font.family: Appearance.font.family.main; color: Colors.colors.color5; }
         }
       }
       
-      // Helper function to reset and start animation with current dimensions
       function resetAnimation() {
-        // Stop the animation first
         scrollAnim.stop()
-        
-        // Reset position to start
         scrollContent.x = 0
-        
-        // Give QML a moment to recalculate widths
+
         Qt.callLater(function() {
-          // Only run if content is wider than container
-          if (scrollingArea.fullText.length > 50 || scrollContent.width > scrollingArea.maxWidth) {
-            console.log("Adding new animation attributes")
-            scrollAnim.from = 0
-            scrollAnim.to = -(scrollContent.width - scrollingArea.maxWidth)
-            scrollAnim.duration = Math.max(scrollContent.width * 20, 8000)
+          if (scrollContent.width > scrollingArea.maxWidth) {
             scrollAnim.start()
           }
         })
       }
       
-      // Animation for scrolling text
       NumberAnimation {
         id: scrollAnim
         target: scrollContent
         property: "x"
         from: 0
-        to: -(scrollContent.width - scrollingArea.maxWidth)
-        duration: Math.max(scrollContent.width * 20, 8000)
+        to: -(content1.width + scrollContent.spacing)
+        duration: Math.max(content1.width * 20, 8000)
         loops: Animation.Infinite
-        running: false  // Don't auto-start
-        easing.type: Easing.InOutQuad  // Changed to Linear for smoother continuous scroll
+        running: false
+        easing.type: Easing.Linear
       }
       
-      // Start animation when component is ready
       Component.onCompleted: {
         if (scrollingArea.fullText.length > 50 || scrollContent.width > scrollingArea.maxWidth) {
           scrollAnim.start()
@@ -106,11 +87,6 @@ Item {
           console.log("New track started - resetting animation")
           scrollingArea.resetAnimation()
         }
-      }
-      
-      // Also reset when the text content changes (backup mechanism)
-      onFullTextChanged: {
-        scrollingArea.resetAnimation()
       }
     }
   }

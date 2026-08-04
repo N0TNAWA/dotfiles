@@ -6,6 +6,7 @@ import Quickshell.Wayland
 import Quickshell.Hyprland
 import qs
 import qs.modules.common
+import qs.modules.components
 
 Scope {
   id: bar
@@ -22,16 +23,10 @@ Scope {
         id: barRoot
         screen: Quickshell.screens[0]
         exclusionMode: ExclusionMode.Ignore
-        exclusiveZone: implicitHeight
+        exclusiveZone: Appearance.sizes.barHeight
         WlrLayershell.namespace: "quickshell:bar"
-        implicitHeight: Appearance.sizes.barHeight
+        implicitHeight: Appearance.sizes.barHeight + 20
         color: "transparent"
-
-        margins {
-          top: 10
-          left: 10
-          right: 10
-        }
 
         anchors {
           top: true
@@ -44,20 +39,28 @@ Scope {
           id: barContent
 
           anchors {
-            right: parent.right
             left: parent.left
+            right: parent.right
             top: parent.top
-            bottom: undefined
           }
-          
-          implicitHeight: Appearance.sizes.barHeight
-          height: Config.options.bar.barHeight
 
-          Rectangle {
+          height: Appearance.sizes.barHeight
+
+          BlobRect {
             id: barBackground
-            anchors.fill: parent
+
+            anchors {
+              left: parent.left
+              right: parent.right
+              top: parent.top
+            }
+
+            height: Appearance.sizes.barHeight
+
+            bottomRight: inverse
+            bottomLeft: inverse
+
             color: Colors.colors.color0
-            radius: 10
           }
           
           // Left section //
@@ -68,7 +71,7 @@ Scope {
             anchors {
               topMargin: 0
               bottomMargin: 0
-              leftMargin: 7
+              leftMargin: 15
               rightMargin: 0
             }
 
@@ -133,7 +136,7 @@ Scope {
               topMargin: 0
               bottomMargin: 0
               leftMargin: 0
-              rightMargin: 7
+              rightMargin: 10
             }
 
             BarGroup {

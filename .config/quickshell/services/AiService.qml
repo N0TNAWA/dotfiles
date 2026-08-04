@@ -9,7 +9,6 @@ pragma ComponentBehavior: Bound
 Singleton {
     id: aiService
 
-
     property var chatMessages: []
     property string latestMessage
     property string chatName

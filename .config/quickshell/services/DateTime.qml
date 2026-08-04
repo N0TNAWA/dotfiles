@@ -10,6 +10,8 @@ Singleton {
     id: clock
     precision: SystemClock.Minutes
   }
+
+  property string sliced: Qt.locale().toString(clock.date, "hh\nmm") 
   property string time: Qt.locale().toString(clock.date, Config.options?.time.format ?? "hh:mm")
   property string date: Qt.locale().toString(clock.date, Config.options?.time.dateFormat ?? "dd/MM")
   property string uptime: "0h, 0m"

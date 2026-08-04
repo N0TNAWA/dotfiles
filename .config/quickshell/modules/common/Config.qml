@@ -92,7 +92,7 @@ Singleton {
         property int maxCharLength: 20
         property bool calendarVisible: false  // false| Only clock true| Clock and calendar
         property bool allUpdatesVisible: true // false| pacman  true| pacman, aur and flatpak
-        property bool barGroupBackground: false
+        property bool barGroupBackground: true
 
         property JsonObject power: JsonObject {
           property bool togglePowerOptions: false

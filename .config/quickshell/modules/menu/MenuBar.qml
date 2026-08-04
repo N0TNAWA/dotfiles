@@ -1,6 +1,7 @@
 import qs
 import qs.services
 import qs.modules.common
+import qs.modules.components
 import QtQuick
 import QtQuick.Controls
 import Quickshell.Io
@@ -22,6 +23,8 @@ Scope {
 
       property var contentParent: menubarBackground
       property real menubarWidth: Appearance.sizes.menubarWidth
+      property real menubarHeight: Appearance.sizes.menubarHeight
+      property real overflowPadding: Appearance.paddings.overflowPadding
 
       function hide() {
         GlobalStates.menubarOpen = false
@@ -29,8 +32,8 @@ Scope {
 
       exclusionMode: ExclusionMode.Normal
       exclusiveZone: root.pin ? menubarWidth : 0
-      implicitWidth: Appearance.sizes.menubarWidth + 10 // <-- + 10 for padding for the animation
-      implicitHeight: GlobalStates.aiChatOpen ? Appearance.sizes.aiWindow.menubarHeight : Appearance.sizes.menubarHeight // <-- + 10 for padding for the animation
+      implicitWidth: Appearance.sizes.menubarWidth + overflowPadding * 2 // <-- + 10 for padding for the animation
+      implicitHeight: GlobalStates.aiChatOpen ? Appearance.sizes.aiWindow.menubarHeight + overflowPadding * 2 : Appearance.sizes.menubarHeight + overflowPadding // <-- + 10 for padding for the animation
       WlrLayershell.namespace: "quickshell:menubar"
       focusable: true
       color: "transparent"
@@ -38,13 +41,8 @@ Scope {
       anchors {
         left: true
         top: true
-        right: false
+        right: true
         bottom: false
-      }
-
-      margins {
-        top: 10
-        left: 0
       }
 
       mask: Region {
@@ -61,13 +59,18 @@ Scope {
         }
       }
 
-      Rectangle {
+      BlobRect {
         id: menubarBackground
         anchors.top: parent.top
         width: menubarRoot.menubarWidth
-        height: parent.height 
+        height: menubarRoot.menubarHeight 
         color: Colors.colors.color0
-        radius: 12
+        
+        radius: 20
+        topRight: inverse
+        topLeft: none
+        bottomRight: normal
+        bottomLeft: inverse
 
         StackView {
           id: stackView
@@ -77,7 +80,7 @@ Scope {
           }
         }
 
-        x: GlobalStates.menubarOpen ? 10 : -width
+        x: GlobalStates.menubarOpen ?  0 : -width -20
 
         Behavior on x {
           NumberAnimation {

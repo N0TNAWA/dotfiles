@@ -13,4 +13,5 @@ Singleton {
   property bool menubarOpen: false
   property bool aiChatOpen: false
   property bool logsMenuOpen: false
+  property bool quickAccessBusy: false
 }

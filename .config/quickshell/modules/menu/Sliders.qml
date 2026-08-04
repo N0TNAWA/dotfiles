@@ -5,10 +5,21 @@ import qs.services
 import QtQuick
 import QtQuick.Layouts
 import Qt5Compat.GraphicalEffects
+import QtQuick.Controls
 import Quickshell
 
 Item {
   id: root
+
+  property StackView stackView
+
+  function openEntry(entry) {
+    console.log(stackView)
+    stackView.push("buttons/" + entry + ".qml")
+    GlobalStates.quickAccessBusy = true
+
+    console.log("quickAccess global status: ", GlobalStates.quickAccessBusy)
+  }
 
   ColumnLayout {
     anchors.fill: parent
@@ -107,18 +118,86 @@ Item {
         spacing: 5
 
         Repeater {
-          model: ["bluetooth", "wifi", "volume", "wallpaper", "keybinds"]
+          model: ["clip", "wifi", "vol", "wp", "kbs"]
 
           Rectangle {
+            required property var modelData
+            required property int index
+
+            property var icons: ({
+              clip: "",
+              wifi: "",
+              vol:  "",
+              wp:   "",
+              kbs:  "",
+            })
+
+            property var entries: ({
+              clip: "clipboard",
+              wifi: "wifi",
+              vol:  "volume",
+              wp:   "wallpapers",
+              kbs:  "keybindings",
+            })
+
             Layout.fillWidth: true
             Layout.fillHeight: true
 
             Layout.topMargin: 5
             Layout.bottomMargin: 5
-
-            radius: 50
             
-            color: Colors.colors.color4
+            color: "transparent"
+
+            Rectangle {
+              id: arrow
+
+              implicitWidth: parent.width
+              implicitHeight: parent.height
+
+              color: Colors.colors.color5
+
+              radius: 10
+
+              border.color: Colors.colors.color1
+
+              Text {
+                anchors.right: parent.right
+                anchors.verticalCenter: parent.verticalCenter
+                rightPadding: 4
+                font.pixelSize: Appearance.font.pixelSize.smaller
+                font.family: Appearance.font.family.main
+                color: Colors.colors.color7
+                text: ""
+              }
+
+              MouseArea {
+                anchors.fill: parent
+                cursorShape: Qt.PointingHandCursor
+                onClicked: root.openEntry(entries[modelData])
+              }
+            }
+
+            Rectangle {
+              id: button
+
+              width: arrow.implicitWidth / 1.25
+              height: parent.height
+
+              color: Colors.colors.color5
+
+              bottomLeftRadius: 10
+              topLeftRadius: 10
+
+              border.color: Colors.colors.color1
+
+              Text {
+                anchors.centerIn: parent
+                font.pixelSize: Appearance.font.pixelSize.small
+                font.family: Appearance.font.family.main
+                color: Colors.colors.color7
+                text: icons[modelData] || "?"
+              }
+            }
           }
         }
       }

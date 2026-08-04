@@ -9,7 +9,7 @@ return {
     "williamboman/mason-lspconfig.nvim",
     config = function()
       require("mason-lspconfig").setup({
-        ensure_installed = { "lua_ls", "ts_ls", "pyright", "omnisharp" }
+        ensure_installed = { "lua_ls", "ts_ls", "pyright", "omnisharp", "jdtls" }
       })
     end
   },
@@ -42,12 +42,16 @@ return {
         capabilities = capabilities,
       }
 
+      vim.lsp.config.jdtls = {
+        capabilities = capabilities,
+      }
+
       -- Start the language servers
       vim.lsp.start(vim.lsp.config.lua_ls)
       vim.lsp.start(vim.lsp.config.ts_ls)
       vim.lsp.start(vim.lsp.config.pyright)
       vim.lsp.start(vim.lsp.config.omnisharp)
-      vim.lsp.start(vim.lsp.config.qmlls)
+      vim.lsp.start(vim.lsp.config.jdtls)
 
       -- KEYMAPS
       vim.keymap.set("n", "K", vim.lsp.buf.hover, {})

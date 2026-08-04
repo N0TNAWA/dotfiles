@@ -6,19 +6,18 @@ import QtQuick.Controls
 import QtQuick.Layouts
 
 Item {
-    id: root
-    anchors.fill: parent
+  id: root
+  anchors.fill: parent
 
 	function closeAiChat() {
 		stackView.pop()
 		GlobalStates.aiChatOpen = false
-
-		console.log("aiChatOpen global status: ", GlobalStates.aiChatOpen)
+	  console.log("aiChatOpen global status: ", GlobalStates.aiChatOpen)
 	}
 
 	ColumnLayout {
-		id: containerLayout
-
+	  id: containerLayout
+    
 		anchors {
 			fill: parent
 
@@ -295,7 +294,7 @@ Item {
 									AiService.openChat(index)
 									GlobalStates.logsMenuOpen = !GlobalStates.logsMenuOpen
 								}
-          					}
+          		}
 						}
 					}
 				}
